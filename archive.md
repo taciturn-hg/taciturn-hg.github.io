@@ -8,6 +8,6 @@ permalink: /archive/
 
 <ul>
 {% for post in site.posts reversed %}
-  <li>{{ post.date | date: "%Y-%m-%d" }} — <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  <li>{{ post.date | date: "%Y-%m-%d  %H:%M" }} — <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>

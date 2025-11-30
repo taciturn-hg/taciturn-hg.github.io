@@ -1,6 +1,6 @@
 ---
 title: ""                  # 文章标题
-date: 2025-11-30           # 发布日期，格式 YYYY-MM-DD
+date: 2025-11-30           # 发布日期，格式 YYYY-MM-DD HH:MM:SS
 categories: ""             # 分类，例如 python、java
 tags: []                   # 标签列表，例如 [django, web]
 layout: single               # 使用的布局
