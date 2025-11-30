@@ -12,7 +12,7 @@ author:
   bio: "大二全栈开发初学者，Java & Python"
 
 # 主题设置
-theme: slate              # 主题名
+theme: jekyll-theme-slate              # 主题名
 paginate: 5                 # 每页显示文章数
 
 # 导航栏
