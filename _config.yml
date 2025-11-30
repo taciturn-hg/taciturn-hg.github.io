@@ -1,0 +1,32 @@
+# 博客基本信息
+title: taciturn-hg's Blog        # 博客标题
+description: 记录我的学习笔记与项目经验
+url: "https://taciturn-hg.github.io"  # 博客地址
+baseurl: "taciturn-hg"                 # 仓库名，如果是用户主页就留空
+language: zh-CN
+
+# 作者信息
+author:
+  name: "HouGuo"
+  email: "w430390470@example.com"
+  bio: "大二全栈开发初学者，Java & Python"
+
+# 主题设置
+theme: Minimal              # 主题名，这里用 Minimal 主题
+paginate: 5                 # 每页显示文章数
+
+# 导航栏
+nav:
+  - title: "首页"
+    url: "/"
+  - title: "归档"
+    url: "/archive"
+  - title: "关于我"
+    url: "/about"
+
+# 社交链接
+social:
+  github: "https://github.com/taciturn-hg"
+
+# 所有文章 URL 规则
+permalink: /:categories/:year/:month/:day/:title/
