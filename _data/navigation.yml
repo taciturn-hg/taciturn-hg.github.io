@@ -1,0 +1,8 @@
+# 导航栏
+main:
+  - title: "首页"
+    url: "/"
+  - title: "归档"
+    url: "/archive/"
+  - title: "关于我"
+    url: "/about/"

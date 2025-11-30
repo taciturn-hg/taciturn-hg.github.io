@@ -2,27 +2,20 @@
 title: taciturn-hg's Blog        # 博客标题
 description: 记录我的学习笔记与项目经验
 url: "https://taciturn-hg.github.io"  # 博客地址
-baseurl: "taciturn-hg"                 # 仓库名，如果是用户主页就留空
+baseurl: ""                 # 仓库名，如果是用户主页就留空
 language: zh-CN
 
 # 作者信息
 author:
   name: "HouGuo"
+  avatar: "/assets/images/avatar.png"  # 头像路径，可选
   email: "w430390470@example.com"
   bio: "大二全栈开发初学者，Java & Python"
 
 # 主题设置
-theme: jekyll-theme-slate              # 主题名
+theme: minimal-mistakes-jekyll
 paginate: 5                 # 每页显示文章数
-
-# 导航栏
-nav:
-  - title: "首页"
-    url: "/"
-  - title: "归档"
-    url: "/archive"
-  - title: "关于我"
-    url: "/about"
+paginate_path: "/page:num/"
 
 # 社交链接
 social:
@@ -30,3 +23,11 @@ social:
 
 # 所有文章 URL 规则
 permalink: /:categories/:year/:month/:day/:title/
+
+# 插件
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
