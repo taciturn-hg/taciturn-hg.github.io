@@ -1,21 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-30T23:45:00+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">taciturn-hg’s Blog</title><subtitle>记录我的学习笔记与项目经验</subtitle><author><name>HouGuo</name><email>w430390470@example.com</email></author><entry><title type="html">我的第一篇博客</title><link href="http://localhost:4000/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="alternate" type="text/html" title="我的第一篇博客" /><published>2025-11-30T00:00:00+08:00</published><updated>2025-11-30T00:00:00+08:00</updated><id>http://localhost:4000/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">&lt;h1 id=&quot;欢迎来到我的博客&quot;&gt;&lt;strong&gt;&lt;em&gt;欢迎来到我的博客&lt;/em&gt;&lt;/strong&gt;&lt;/h1&gt;
-&lt;p&gt;ok啊，大家好，我是后果，目前是一名民办大二计科专业的学生，热衷于学习编程，同时也想找到志同道合的朋友一起学习，一起进步。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;正文&quot;&gt;&lt;strong&gt;&lt;em&gt;正文&lt;/em&gt;&lt;/strong&gt;&lt;/h1&gt;
-&lt;p&gt;现在是2025-11-30 21:37，我终于整好这个博客开始写了，天知道这玩意搞了我一下午，调这博客主题还有本地部署博客真是挺闹腾，用那AI也是一直跟我绕，整半天没整好，不过还得是靠我的聪明才智，成功把这玩意整好了。&lt;/p&gt;
-
-&lt;p&gt;好了说正事，首先这是我的第一篇日常博客，聊聊我想说的，首先很庆幸能遇到我团队里的某一位，这一切的开始都是源于ta，ta是我大学认识的第一个朋友，还跟我同寝室，ta很强，我都是以ta为目标，ta在大一给了我很强的学习动力，如果没认识ta，那我跟我的恩师也只是停留在专业课老师和同学的关系，而我也会跟大部分大学生一样浑浑噩噩的混完这四年，虽然说现在我技术上稍比ta强，但ta身上还是有很多我需要学习的地方，为人处世这块哈哈。&lt;/p&gt;
-
-&lt;p&gt;其次就是感谢带我的恩师，从最开始就跟我们讲明了未来我们可以走的方向，帮我拓宽了视野，让我看清了很多东西，让我的前行路上的迷雾散了不少，同时呢，恩师给了我们很多建议，打比赛啊，考证啊，我只能说，帮助很大，后续偶尔的聚餐聊天，聊发展，聊未来，我就在畅想未来我通过努力奋斗之后站在高处的感觉，虽然不知道能不能爬上去，不过想那么多干啥，写到这里让我想到《功夫熊猫》里面乌龟大师的话：&lt;strong&gt;&lt;em&gt;“Yesterday is history, Tomorrow is a mystery, But today is a gift. That is why it’s called the present”&lt;/em&gt;&lt;/strong&gt;，就像那贪心算法，每一次的选择都是最优，最后大概率就是最优答案，注重当下，做好每一天。&lt;/p&gt;
-
-&lt;p&gt;我呢，希望今天成为一切正式的开始，后面能不断的发展下去，也希望未来的我，不管是发展的好或坏，看到这第一篇博客时，能回想起这一刻，能继续激励或重新振作自己，能回想起第一次成功提交，成功运行时的兴奋，加油吧，别放弃！&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;结语&quot;&gt;&lt;strong&gt;&lt;em&gt;结语&lt;/em&gt;&lt;/strong&gt;&lt;/h1&gt;
-&lt;p&gt;好了，就讲这么多，后续我是打算在博客里面记录我的学习、做项目时候遇到的新东西，可以方便我随时查看、复习巩固，也可以分享给跟我同一团队的伙伴，也希望能帮助到每一位看我博客的人，若发现有问题，可到我的github账号或者email邮箱告诉我，我会及时修改。&lt;/p&gt;</content><author><name>HouGuo</name><email>w430390470@example.com</email></author><category term="日常" /><summary type="html">欢迎来到我的博客 ok啊，大家好，我是后果，目前是一名民办大二计科专业的学生，热衷于学习编程，同时也想找到志同道合的朋友一起学习，一起进步。</summary></entry><entry><title type="html">GitHub Pages + Jekyll 本地部署博客</title><link href="http://localhost:4000/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" rel="alternate" type="text/html" title="GitHub Pages + Jekyll 本地部署博客" /><published>2025-11-30T00:00:00+08:00</published><updated>2025-11-30T00:00:00+08:00</updated><id>http://localhost:4000/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/">&lt;h1 id=&quot;前言&quot;&gt;前言&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-30T23:50:48+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">taciturn-hg’s Blog</title><subtitle>记录我的学习笔记与项目经验</subtitle><author><name>HouGuo</name><email>w430390470@example.com</email></author><entry><title type="html">GitHub Pages + Jekyll 本地部署博客</title><link href="http://localhost:4000/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" rel="alternate" type="text/html" title="GitHub Pages + Jekyll 本地部署博客" /><published>2025-11-30T23:30:00+08:00</published><updated>2025-11-30T23:30:00+08:00</updated><id>http://localhost:4000/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/">&lt;h1 id=&quot;前言&quot;&gt;前言&lt;/h1&gt;
 &lt;p&gt;本博客作为我的第一篇技术博客，有些细节可能讲的不是很清晰或者有矛盾，请见谅，错误点和矛盾点可以到我的github账号或者email邮箱反馈，我会及时修正&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -83,4 +66,21 @@ gem &quot;github-pages&quot;, group: :jekyll_plugins
 &lt;p&gt;成功后会看到类似：&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Server address: http://127.0.0.1:4000/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;就可以在网站使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://127.0.0.1:4000/&lt;/code&gt;去访问本地博客了！&lt;/p&gt;</content><author><name>HouGuo</name><email>w430390470@example.com</email></author><category term="技术" /><summary type="html">前言 本博客作为我的第一篇技术博客，有些细节可能讲的不是很清晰或者有矛盾，请见谅，错误点和矛盾点可以到我的github账号或者email邮箱反馈，我会及时修正</summary></entry></feed>
+&lt;p&gt;就可以在网站使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://127.0.0.1:4000/&lt;/code&gt;去访问本地博客了！&lt;/p&gt;</content><author><name>HouGuo</name><email>w430390470@example.com</email></author><category term="技术" /><summary type="html">前言 本博客作为我的第一篇技术博客，有些细节可能讲的不是很清晰或者有矛盾，请见谅，错误点和矛盾点可以到我的github账号或者email邮箱反馈，我会及时修正</summary></entry><entry><title type="html">我的第一篇博客</title><link href="http://localhost:4000/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="alternate" type="text/html" title="我的第一篇博客" /><published>2025-11-30T22:27:00+08:00</published><updated>2025-11-30T22:27:00+08:00</updated><id>http://localhost:4000/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">&lt;h1 id=&quot;欢迎来到我的博客&quot;&gt;&lt;strong&gt;&lt;em&gt;欢迎来到我的博客&lt;/em&gt;&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;ok啊，大家好，我是后果，目前是一名民办大二计科专业的学生，热衷于学习编程，同时也想找到志同道合的朋友一起学习，一起进步。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;正文&quot;&gt;&lt;strong&gt;&lt;em&gt;正文&lt;/em&gt;&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;现在是2025-11-30 21:37，我终于整好这个博客开始写了，天知道这玩意搞了我一下午，调这博客主题还有本地部署博客真是挺闹腾，用那AI也是一直跟我绕，整半天没整好，不过还得是靠我的聪明才智，成功把这玩意整好了。&lt;/p&gt;
+
+&lt;p&gt;好了说正事，首先这是我的第一篇日常博客，聊聊我想说的，首先很庆幸能遇到我团队里的某一位，这一切的开始都是源于ta，ta是我大学认识的第一个朋友，还跟我同寝室，ta很强，我都是以ta为目标，ta在大一给了我很强的学习动力，如果没认识ta，那我跟我的恩师也只是停留在专业课老师和同学的关系，而我也会跟大部分大学生一样浑浑噩噩的混完这四年，虽然说现在我技术上稍比ta强，但ta身上还是有很多我需要学习的地方，为人处世这块哈哈。&lt;/p&gt;
+
+&lt;p&gt;其次就是感谢带我的恩师，从最开始就跟我们讲明了未来我们可以走的方向，帮我拓宽了视野，让我看清了很多东西，让我的前行路上的迷雾散了不少，同时呢，恩师给了我们很多建议，打比赛啊，考证啊，我只能说，帮助很大，后续偶尔的聚餐聊天，聊发展，聊未来，我就在畅想未来我通过努力奋斗之后站在高处的感觉，虽然不知道能不能爬上去，不过想那么多干啥，写到这里让我想到《功夫熊猫》里面乌龟大师的话：&lt;strong&gt;&lt;em&gt;“Yesterday is history, Tomorrow is a mystery, But today is a gift. That is why it’s called the present”&lt;/em&gt;&lt;/strong&gt;，就像那贪心算法，每一次的选择都是最优，最后大概率就是最优答案，注重当下，做好每一天。&lt;/p&gt;
+
+&lt;p&gt;我呢，希望今天成为一切正式的开始，后面能不断的发展下去，也希望未来的我，不管是发展的好或坏，看到这第一篇博客时，能回想起这一刻，能继续激励或重新振作自己，能回想起第一次成功提交，成功运行时的兴奋，加油吧，别放弃！&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;结语&quot;&gt;&lt;strong&gt;&lt;em&gt;结语&lt;/em&gt;&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;好了，就讲这么多，后续我是打算在博客里面记录我的学习、做项目时候遇到的新东西，可以方便我随时查看、复习巩固，也可以分享给跟我同一团队的伙伴，也希望能帮助到每一位看我博客的人，若发现有问题，可到我的github账号或者email邮箱告诉我，我会及时修改。&lt;/p&gt;</content><author><name>HouGuo</name><email>w430390470@example.com</email></author><category term="日常" /><summary type="html">欢迎来到我的博客 ok啊，大家好，我是后果，目前是一名民办大二计科专业的学生，热衷于学习编程，同时也想找到志同道合的朋友一起学习，一起进步。</summary></entry></feed>
