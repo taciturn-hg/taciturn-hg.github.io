@@ -12,7 +12,7 @@ author:
   bio: "大二全栈开发初学者，Java & Python"
 
 # 主题设置
-theme: Minimal              # 主题名，这里用 Minimal 主题
+theme: jekyll-theme-minimal              # 主题名，这里用 Minimal 主题
 paginate: 5                 # 每页显示文章数
 
 # 导航栏
