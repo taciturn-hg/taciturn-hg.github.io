@@ -40,3 +40,14 @@ plugins:
 collections:
   posts:
     output: true
+
+# 全局文章默认配置
+defaults:
+  - scope:
+      path: ""        # "" 表示整个站点
+      type: "posts"   # 仅应用于文章
+    values:
+      toc: true                # 全局开启目录
+      toc_label: "目录"        # 目录标题
+      toc_sticky: true         # 侧边栏目录跟随滚动
+      author_profile: true     # 显示作者信息
