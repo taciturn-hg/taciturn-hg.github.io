@@ -1,33 +1,33 @@
-name: Deploy Blog
+name: Build and Deploy Jekyll site
 
 on:
   push:
     branches:
-      - main  # 或你的源分支
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # 确保可以获取完整历史
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.7'
+          ruby-version: '3.2'
+          bundler-cache: true
 
       - name: Install dependencies
         run: bundle install
 
       - name: Build site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --trace
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
           publish_branch: gh-pages
+          publish_dir: ./_site
