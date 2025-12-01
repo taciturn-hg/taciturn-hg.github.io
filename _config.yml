@@ -51,3 +51,6 @@ defaults:
       toc_label: "目录"        # 目录标题
       toc_sticky: true         # 侧边栏目录跟随滚动
       author_profile: true     # 显示作者信息
+
+# 允许生成未来日期文章
+future: true
