@@ -54,3 +54,6 @@ defaults:
 
 # 允许生成未来日期文章
 future: true
+
+# 永久开启增量构建
+incremental: true
