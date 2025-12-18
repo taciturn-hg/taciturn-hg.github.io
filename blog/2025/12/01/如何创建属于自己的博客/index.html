@@ -1,0 +1,552 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>如何创建属于自己的博客 - taciturn-hg’s Blog</title>
+<meta name="description" content="描述 我们在网上搜教程、资料时，有时候会搜到一些大佬的博客，里面记录的他们所分享的一些技术和日常，这时候应该也会想拥有一个属于自己的博客，这篇教程就是手把手教你如何制作一个属于自己的博客">
+
+
+  <meta name="author" content="HouGuo">
+  
+  <meta property="article:author" content="HouGuo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="taciturn-hg&#39;s Blog">
+<meta property="og:title" content="如何创建属于自己的博客">
+<meta property="og:url" content="https://taciturn-hg.github.io/blog/2025/12/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+
+
+  <meta property="og:description" content="描述 我们在网上搜教程、资料时，有时候会搜到一些大佬的博客，里面记录的他们所分享的一些技术和日常，这时候应该也会想拥有一个属于自己的博客，这篇教程就是手把手教你如何制作一个属于自己的博客">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-12-01T10:36:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://taciturn-hg.github.io/blog/2025/12/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="taciturn-hg's Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          taciturn-hg&#39;s Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/"
+                
+                
+              >归档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >关于我</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://taciturn-hg.github.io/">
+        <img src="/assets/images/avatar.png" alt="HouGuo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://taciturn-hg.github.io/" itemprop="url">HouGuo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>大二全栈开发初学者，Java &amp; Python</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:w430390470@example.com" rel="me" class="u-email">
+            <meta itemprop="email" content="w430390470@example.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="如何创建属于自己的博客">
+    <meta itemprop="description" content="描述我们在网上搜教程、资料时，有时候会搜到一些大佬的博客，里面记录的他们所分享的一些技术和日常，这时候应该也会想拥有一个属于自己的博客，这篇教程就是手把手教你如何制作一个属于自己的博客">
+    <meta itemprop="datePublished" content="2025-12-01T10:36:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://taciturn-hg.github.io/blog/2025/12/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" itemprop="url">如何创建属于自己的博客
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#描述">描述</a></li><li><a href="#第一步准备工作">第一步：准备工作</a></li><li><a href="#第二步创建github仓库">第二步：创建GitHub仓库</a></li><li><a href="#第三步启动github-pages生成博客">第三步：启动GitHub Pages(生成博客)</a></li><li><a href="#第四步clone远程仓库到本地">第四步：clone远程仓库到本地</a></li><li><a href="#第五步正式开始制作blog">第五步：正式开始制作blog</a></li><li><a href="#第六步-提交到远程github仓库">第六步 提交到远程GitHub仓库</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="描述">描述</h1>
+<p>我们在网上搜教程、资料时，有时候会搜到一些大佬的博客，里面记录的他们所分享的一些技术和日常，这时候应该也会想拥有一个属于自己的博客，这篇教程就是手把手教你如何制作一个属于自己的博客</p>
+
+<hr />
+
+<h1 id="第一步准备工作">第一步：准备工作</h1>
+
+<p>1、注册GitHub账号<br />
+前往GitHub官网（<code class="language-plaintext highlighter-rouge">https://github.com/</code>）注册一个GitHub账号,注册成功后记住<strong>用户名</strong>，如果不记得也可以到官网这里查看<img src="/assets/images/2025-12-01/1-1.png" alt="GitHub用户名" /></p>
+
+<p>2、下载git<br />
+去git官网（<code class="language-plaintext highlighter-rouge">https://git-scm.com/</code>）下载<img src="/assets/images/2025-12-01/1-2.png" alt="git官网" /></p>
+
+<p>3、下载vscode<br />
+去vscode官网（<code class="language-plaintext highlighter-rouge">https://code.visualstudio.com/</code>）下载<img src="/assets/images/2025-12-01/1-5.png" alt="vscode官网" /></p>
+
+<hr />
+
+<h1 id="第二步创建github仓库">第二步：创建GitHub仓库</h1>
+
+<p>1、登录 GitHub → 点击右上角 → Repository → New<img src="/assets/images/2025-12-01/1-3.png" alt="创建仓库1" /></p>
+
+<p>2、仓库名建议用：<你的GitHub用户名>.github.io（这是 GitHub Pages 默认的个人博客仓库名）</你的GitHub用户名></p>
+
+<p>3、选择 Public，勾选 Initialize this repository with a README</p>
+
+<p>4、点击 Create Repository<img src="/assets/images/2025-12-01/1-4.png" alt="创建仓库2" /></p>
+
+<hr />
+
+<h1 id="第三步启动github-pages生成博客">第三步：启动GitHub Pages(生成博客)</h1>
+
+<p>1、进入仓库 → Settings → Pages<br /></p>
+
+<p>配置：</p>
+
+<p>Source：Deploy from branch</p>
+
+<p>Branch：main /root
+<img src="/assets/images/2025-12-01/1-8.png" alt="启动GitHubPages" /></p>
+
+<hr />
+
+<h1 id="第四步clone远程仓库到本地">第四步：clone远程仓库到本地</h1>
+
+<p>1、创建一个文件夹专门放你的项目，使用vscode打开</p>
+
+<p>2、去到你的github的blog仓库，复制仓库的URL<img src="/assets/images/2025-12-01/1-6.png" alt="复制仓库URL" /></p>
+
+<p>3、在vscode里面点击<strong>克隆git仓库</strong>，将复制的仓库URL输入进去<img src="/assets/images/2025-12-01/1-7.png" alt="clone远程仓库" /></p>
+
+<hr />
+
+<h1 id="第五步正式开始制作blog">第五步：正式开始制作blog</h1>
+
+<p>1、首先这是一个最小的blog所需要的文件内容</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>your-blog/                                      --你clone的仓库文件夹
+├─ _config.yml                                  --站点配置文件                                          
+├─ Gemfile(可选)                                 --用于本地运行博客，若有需求可以看我上一篇blog
+├─ index.md                                     --站点首页文件
+├─ about.md(可选)                                --介绍你自己的页面
+├─ archive.md(可选)                              --归档页面，用来显示以往所有的blog的列表      
+├─ _posts/                                      --blog文件夹，存放你的blog文章
+│   └─ 2025-12-01-your-first-post.md
+├─ assets/(可选)                                     --图片文件夹，存放照片，路径不能少
+│   └─ images/
+│       └─ avatar.png
+│       └─ xxx.png
+</code></pre></div></div>
+
+<p>2、先在项目根目录创建<code class="language-plaintext highlighter-rouge">_config.yml</code>文件，以下是示例配置：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title: 后果的博客                                 --网站标题
+description: 我的学习记录                         --描述你的网站
+theme: minima                                   --网站主题，这是GitHub的官方主题，需要配置第三方主题的需要其他方法
+markdown: kramdown                              --指定指定 Markdown 渲染器
+future: true                                    --允许生成未来日期文章（不能漏，我遇到个情况就是写当天日期的文章上传无显示）
+</code></pre></div></div>
+
+<p>3、在项目根目录创建首页文件<code class="language-plaintext highlighter-rouge">index.md</code>，以下是示例代码：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">home                                    --页面布局，跟主题有关</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">首页                                      --首页标题</span>
+<span class="nn">---</span>
+
+欢迎来到我的博客！                                 --正文内容
+
+<span class="p">```</span><span class="nl">html
+</span><span class="nt">&lt;h2&gt;</span>文章列表<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+  
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/2025/12/18/Java%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"</span><span class="nt">&gt;</span>Java学习总结<span class="nt">&lt;/a&gt;</span> - 2025-12-18
+    <span class="nt">&lt;/li&gt;</span>
+  
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/2025/12/01/win11%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BAVMware%E5%AE%89%E8%A3%85ensp/"</span><span class="nt">&gt;</span>win11如何使用虚拟机VMware安装ensp<span class="nt">&lt;/a&gt;</span> - 2025-12-01
+    <span class="nt">&lt;/li&gt;</span>
+  
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/blog/2025/12/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"</span><span class="nt">&gt;</span>如何创建属于自己的博客<span class="nt">&lt;/a&gt;</span> - 2025-12-01
+    <span class="nt">&lt;/li&gt;</span>
+  
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/"</span><span class="nt">&gt;</span>GitHub Pages + Jekyll 本地部署博客<span class="nt">&lt;/a&gt;</span> - 2025-11-30
+    <span class="nt">&lt;/li&gt;</span>
+  
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"</span><span class="nt">&gt;</span>我的第一篇博客<span class="nt">&lt;/a&gt;</span> - 2025-11-30
+    <span class="nt">&lt;/li&gt;</span>
+  
+<span class="nt">&lt;/ul&gt;</span>                                           --因为GitHub自己的主题很简单，想要主页列举文章列表就需要这堆代码
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+4、在项目根目录创建`_posts`文件夹：
+```powershell
+mkdir _posts
+</code></pre></div></div>
+<p>在<code class="language-plaintext highlighter-rouge">_posts</code>里面创建一个示例文章，文件名写：</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2025-12-01-hello-world.md
+</code></pre></div></div>
+<p>内容写：</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Hello</span><span class="nv"> </span><span class="s">World"</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">2025-12-01                                --文章时间</span>
+<span class="nn">---</span>
+
+这是我的第一篇文章！
+
+<span class="p">![</span><span class="nv">描述</span><span class="p">](</span><span class="sx">相对路径</span><span class="p">)</span>                                 --若要使用图片可以这样
+<span class="p">![</span><span class="nv">搜索git</span><span class="p">](</span><span class="sx">/assets/images/2025-12-01/1-9.png</span><span class="p">)</span>
+
+</code></pre></div></div>
+<p><strong>注意：文件名格式必须是YYYY-MM-DD-title.md，也就是year4位，month2位，day2位，错误示例：2025-12-1-my-first.md</strong></p>
+
+<hr />
+
+<h1 id="第六步-提交到远程github仓库">第六步 提交到远程GitHub仓库</h1>
+
+<p>1、初始化git(首次使用才需要)<br />
+如果是第一次使用 Git，需要把你的身份告诉 Git：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"你的GitHub用户名"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"你的GitHub绑定邮箱"</span>
+</code></pre></div></div>
+<p>只需要设置一次，以后不用再设置。</p>
+
+<p>2、进入你的博客根目录<br />
+有两种方法：第一种是在windows自带的搜索里面搜索git<img src="/assets/images/2025-12-01/1-9.png" alt="搜索git" /><br /></p>
+
+<p>然后使用使用<code class="language-plaintext highlighter-rouge">cd</code>进入项目根目录，例如：<code class="language-plaintext highlighter-rouge">cd E:\ITEM\taciturn-hg.github.io</code><br /></p>
+
+<p>第二种方法就是进入你项目根目录文件夹，右键 → 显示更多选项 → Open Git Bash Here<img src="/assets/images/2025-12-01/1-10.png" alt="打开git bash" /><br /></p>
+
+<p>3、查看当前文件夹修改情况</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div></div>
+<p>你会看到红色和绿色的文件，表示哪些被修改/添加了。</p>
+
+<p>4、把修改加入暂存区</p>
+
+<p>把所有改动添加进去：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+</code></pre></div></div>
+<p>或者你想添加某一个文件：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add _posts/2025-12-01-第一篇博客.md
+</code></pre></div></div>
+
+<p>5、提交代码</p>
+
+<p>加上自己的说明（提交信息尽量写清楚）：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"修改文章：修复文件名日期格式"</span>
+</code></pre></div></div>
+<p>当你看到：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X files changed ...
+</code></pre></div></div>
+<p>说明 commit 成功。</p>
+
+<p>6、推送到 GitHub</p>
+
+<p>把本地提交推送上去：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
+</code></pre></div></div>
+<p>如果第一次 push，可能需要：<br />
+<code class="language-plaintext highlighter-rouge">git push -u origin main</code>或<code class="language-plaintext highlighter-rouge">git push -u origin master</code><br />
+⚠️ GitHub 新仓库默认分支是 main。</p>
+
+<p>7、刷新你的 GitHub Pages 网站</p>
+
+<p>推送成功后：GitHub会自动构建一般需要几十秒 ~ 1分钟，然后你的博客就更新了，访问：</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://你的用户名.github.io
+</code></pre></div></div>
+<p>也可以去到你的远程仓库访问
+<img src="/assets/images/2025-12-01/1-11.png" alt="访问blog" /></p>
+
+<p>如果没有的话可以这样设置：
+<img src="/assets/images/2025-12-01/1-12.png" alt="设置仓库访问blog链接" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-01T10:36:00+00:00">December 1, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" class="pagination--pager" title="GitHub Pages + Jekyll 本地部署博客">Previous</a>
+    
+    
+      <a href="/blog/2025/12/01/win11%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BAVMware%E5%AE%89%E8%A3%85ensp/" class="pagination--pager" title="win11如何使用虚拟机VMware安装ensp">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://taciturn-hg.github.io">taciturn-hg&#39;s Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

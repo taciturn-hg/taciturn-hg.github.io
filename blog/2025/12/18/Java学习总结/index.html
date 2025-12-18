@@ -1,0 +1,667 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Java学习总结 - taciturn-hg’s Blog</title>
+<meta name="description" content="Java 程序设计课程学习总结">
+
+
+  <meta name="author" content="HouGuo">
+  
+  <meta property="article:author" content="HouGuo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="taciturn-hg&#39;s Blog">
+<meta property="og:title" content="Java学习总结">
+<meta property="og:url" content="https://taciturn-hg.github.io/blog/2025/12/18/Java%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">
+
+
+  <meta property="og:description" content="Java 程序设计课程学习总结">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-12-18T23:02:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://taciturn-hg.github.io/blog/2025/12/18/Java%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="taciturn-hg's Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          taciturn-hg&#39;s Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/"
+                
+                
+              >归档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >关于我</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://taciturn-hg.github.io/">
+        <img src="/assets/images/avatar.png" alt="HouGuo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://taciturn-hg.github.io/" itemprop="url">HouGuo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>大二全栈开发初学者，Java &amp; Python</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:w430390470@example.com" rel="me" class="u-email">
+            <meta itemprop="email" content="w430390470@example.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Java学习总结">
+    <meta itemprop="description" content="Java 程序设计课程学习总结">
+    <meta itemprop="datePublished" content="2025-12-18T23:02:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://taciturn-hg.github.io/blog/2025/12/18/Java%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" itemprop="url">Java学习总结
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#java-程序设计课程学习总结">Java 程序设计课程学习总结</a><ul><li><a href="#一前言">一、前言</a></li><li><a href="#第二章java-语言概述与开发环境">第二章：Java 语言概述与开发环境</a><ul><li><a href="#1-核心知识点">1. 核心知识点</a></li><li><a href="#2-示例代码">2. 示例代码</a></li><li><a href="#3-学习心得">3. 学习心得</a></li></ul></li><li><a href="#第三章java-基础语法">第三章：Java 基础语法</a><ul><li><a href="#1-核心知识点-1">1. 核心知识点</a></li><li><a href="#2-示例代码-1">2. 示例代码</a></li><li><a href="#3-学习难点与解决方法">3. 学习难点与解决方法</a></li></ul></li><li><a href="#第四章流程控制语句">第四章：流程控制语句</a><ul><li><a href="#1-核心知识点-2">1. 核心知识点</a></li><li><a href="#2-示例代码-2">2. 示例代码</a></li><li><a href="#3-学习心得-1">3. 学习心得</a></li></ul></li><li><a href="#第五章数组">第五章：数组</a><ul><li><a href="#1-核心知识点-3">1. 核心知识点</a></li><li><a href="#2-示例代码-3">2. 示例代码</a></li><li><a href="#3-学习难点">3. 学习难点</a></li></ul></li><li><a href="#第六章面向对象编程基础">第六章：面向对象编程基础</a><ul><li><a href="#1-核心知识点-4">1. 核心知识点</a></li><li><a href="#2-示例代码-4">2. 示例代码</a></li><li><a href="#3-个人理解">3. 个人理解</a></li></ul></li><li><a href="#第七章封装继承与多态">第七章：封装、继承与多态</a><ul><li><a href="#1-核心知识点-5">1. 核心知识点</a></li><li><a href="#2-示例代码-5">2. 示例代码</a></li><li><a href="#3-学习难点与突破">3. 学习难点与突破</a></li></ul></li><li><a href="#第八章接口与抽象类">第八章：接口与抽象类</a><ul><li><a href="#1-核心知识点-6">1. 核心知识点</a></li><li><a href="#2-示例代码-6">2. 示例代码</a></li><li><a href="#3-学习心得-2">3. 学习心得</a></li></ul></li><li><a href="#第九章异常处理">第九章：异常处理</a><ul><li><a href="#1-核心知识点-7">1. 核心知识点</a></li><li><a href="#2-示例代码-7">2. 示例代码</a></li><li><a href="#3-个人理解-1">3. 个人理解</a></li></ul></li><li><a href="#第十章常用类与字符串">第十章：常用类与字符串</a><ul><li><a href="#1-核心知识点-8">1. 核心知识点</a></li><li><a href="#2-示例代码-8">2. 示例代码</a></li><li><a href="#3-学习心得-3">3. 学习心得</a></li></ul></li><li><a href="#十一章总结与反思">十一章：总结与反思</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="java-程序设计课程学习总结">Java 程序设计课程学习总结</h1>
+
+<p><strong>姓名 / 学号：王许毅 202402151394</strong></p>
+
+<hr />
+
+<h2 id="一前言">一、前言</h2>
+
+<p>本学期系统学习了《Java 程序设计》课程，从 Java 的基础语法到面向对象思想，再到常用类库与异常处理等内容，对 Java 语言的整体结构与编程思想有了较为完整的认识。本文将按照教材章节顺序，对每一章的<strong>核心概念、关键知识点</strong>进行总结，并结合自己的理解、学习过程中的难点以及解决方法进行反思。</p>
+
+<hr />
+
+<h2 id="第二章java-语言概述与开发环境">第二章：Java 语言概述与开发环境</h2>
+
+<h3 id="1-核心知识点">1. 核心知识点</h3>
+
+<ul>
+  <li>
+    <p>Java 的特点：</p>
+
+    <ul>
+      <li>面向对象</li>
+      <li>跨平台（JVM）</li>
+      <li>安全性高</li>
+      <li>自动垃圾回收</li>
+    </ul>
+  </li>
+  <li>
+    <p>Java 程序的运行机制</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">.java</code> → 编译成 <code class="language-plaintext highlighter-rouge">.class</code></li>
+      <li>由 JVM 解释/运行</li>
+    </ul>
+  </li>
+  <li>
+    <p>JDK、JRE、JVM 的区别</p>
+  </li>
+</ul>
+
+<h3 id="2-示例代码">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello, Java!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-学习心得">3. 学习心得</h3>
+
+<p>本章主要是建立对 Java 的整体认知。一开始对 <strong>JDK / JRE / JVM</strong> 的关系较混乱，后来通过画结构图并实际配置环境，逐渐理解了 Java“<strong>一次编译，到处运行</strong>”的本质。</p>
+
+<hr />
+
+<h2 id="第三章java-基础语法">第三章：Java 基础语法</h2>
+
+<h3 id="1-核心知识点-1">1. 核心知识点</h3>
+
+<ul>
+  <li>
+    <p>数据类型</p>
+
+    <ul>
+      <li>基本数据类型：int、double、char、boolean 等</li>
+      <li>引用数据类型：数组、类、接口</li>
+    </ul>
+  </li>
+  <li>变量与常量（final）</li>
+  <li>
+    <p>运算符</p>
+
+    <ul>
+      <li>算术运算符</li>
+      <li>关系运算符</li>
+      <li>逻辑运算符</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-示例代码-1">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
+<span class="kd">final</span> <span class="kt">int</span> <span class="no">MAX</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span> <span class="c1">// 常量</span>
+</code></pre></div></div>
+
+<h3 id="3-学习难点与解决方法">3. 学习难点与解决方法</h3>
+
+<p>难点在于<strong>数据类型的自动类型转换与强制类型转换</strong>，尤其是在 int 与 double 混合运算时容易出错。通过多写输出语句并观察结果，逐渐形成了对类型转换规则的直觉理解。</p>
+
+<hr />
+
+<h2 id="第四章流程控制语句">第四章：流程控制语句</h2>
+
+<h3 id="1-核心知识点-2">1. 核心知识点</h3>
+
+<ul>
+  <li>条件语句：if / if-else / switch</li>
+  <li>循环语句：for、while、do-while</li>
+  <li>跳转语句：break、continue</li>
+</ul>
+
+<h3 id="2-示例代码-2">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">continue</span><span class="o">;</span> <span class="c1">// 跳过本次循环</span>
+    <span class="o">}</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-学习心得-1">3. 学习心得</h3>
+
+<p>流程控制是编程的基础。初期最容易出现的问题是<strong>循环条件写错导致死循环</strong>。解决方法是：</p>
+
+<ul>
+  <li>循环前先手动推演执行过程</li>
+  <li>使用调试或打印变量观察变化</li>
+</ul>
+
+<hr />
+
+<h2 id="第五章数组">第五章：数组</h2>
+
+<h3 id="1-核心知识点-3">1. 核心知识点</h3>
+
+<ul>
+  <li>一维数组与二维数组</li>
+  <li>数组的声明、初始化、遍历</li>
+  <li>数组下标从 0 开始</li>
+</ul>
+
+<h3 id="2-示例代码-3">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-学习难点">3. 学习难点</h3>
+
+<p>数组越界是最常见错误。通过养成<strong>始终使用 arr.length 控制循环条件</strong>的习惯，有效避免了该问题。</p>
+
+<hr />
+
+<h2 id="第六章面向对象编程基础">第六章：面向对象编程基础</h2>
+
+<h3 id="1-核心知识点-4">1. 核心知识点</h3>
+
+<ul>
+  <li>类与对象</li>
+  <li>成员变量与成员方法</li>
+  <li>构造方法</li>
+  <li>this 关键字</li>
+</ul>
+
+<h3 id="2-示例代码-4">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="nc">Student</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">study</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">" 正在学习"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-个人理解">3. 个人理解</h3>
+
+<p>这一章是 Java 学习的<strong>分水岭</strong>。我真正理解到：</p>
+
+<ul>
+  <li>类是抽象的模板</li>
+  <li>对象是具体的实例</li>
+</ul>
+
+<p>通过结合现实事物建模，面向对象思想变得更加直观。</p>
+
+<hr />
+
+<h2 id="第七章封装继承与多态">第七章：封装、继承与多态</h2>
+
+<h3 id="1-核心知识点-5">1. 核心知识点</h3>
+
+<ul>
+  <li>封装：private + getter/setter</li>
+  <li>继承：extends</li>
+  <li>方法重写（@Override）</li>
+  <li>多态：父类引用指向子类对象</li>
+</ul>
+
+<h3 id="2-示例代码-5">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">speak</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"动物叫声"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kt">void</span> <span class="nf">speak</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"汪汪"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-学习难点与突破">3. 学习难点与突破</h3>
+
+<p>多态初学时较抽象。通过<strong>画类继承关系图</strong>并结合运行结果分析，逐渐理解了“<strong>编译看左边，运行看右边</strong>”的含义。</p>
+
+<hr />
+
+<h2 id="第八章接口与抽象类">第八章：接口与抽象类</h2>
+
+<h3 id="1-核心知识点-6">1. 核心知识点</h3>
+
+<ul>
+  <li>抽象类：abstract</li>
+  <li>接口：interface</li>
+  <li>接口的实现：implements</li>
+  <li>面向接口编程思想</li>
+</ul>
+
+<h3 id="2-示例代码-6">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">USB</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">open</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">close</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Mouse</span> <span class="kd">implements</span> <span class="no">USB</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">open</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"鼠标开启"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">close</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"鼠标关闭"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-学习心得-2">3. 学习心得</h3>
+
+<p>接口让程序<strong>更加灵活、可扩展</strong>，为后续学习框架开发打下了基础。</p>
+
+<hr />
+
+<h2 id="第九章异常处理">第九章：异常处理</h2>
+
+<h3 id="1-核心知识点-7">1. 核心知识点</h3>
+
+<ul>
+  <li>异常体系结构</li>
+  <li>try-catch-finally</li>
+  <li>throws 与 throw</li>
+  <li>自定义异常</li>
+</ul>
+
+<h3 id="2-示例代码-7">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ArithmeticException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"除数不能为 0"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-个人理解-1">3. 个人理解</h3>
+
+<p>异常处理增强了程序的健壮性，也让我逐渐养成<strong>提前考虑错误情况</strong>的编程习惯。</p>
+
+<hr />
+
+<h2 id="第十章常用类与字符串">第十章：常用类与字符串</h2>
+
+<h3 id="1-核心知识点-8">1. 核心知识点</h3>
+
+<ul>
+  <li>String 的不可变性</li>
+  <li>StringBuilder / StringBuffer</li>
+  <li>Object 类常用方法</li>
+</ul>
+
+<h3 id="2-示例代码-8">2. 示例代码</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"Java"</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">" 学习"</span><span class="o">);</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</code></pre></div></div>
+
+<h3 id="3-学习心得-3">3. 学习心得</h3>
+
+<p>理解 String 的不可变性后，明白了为什么在频繁拼接字符串时要使用 StringBuilder，提高了代码性能意识。</p>
+
+<hr />
+
+<h2 id="十一章总结与反思">十一章：总结与反思</h2>
+
+<p>通过本学期的 Java 学习，我不仅掌握了 Java 的基本语法，更重要的是建立了<strong>面向对象的编程思想</strong>。从最初只关注代码能否运行，到现在开始关注结构、可维护性和扩展性，这是一次重要的转变。</p>
+
+<p>当然，我也清楚地认识到自己在复杂逻辑设计与代码规范方面仍有不足，后续将通过更多项目实践来不断提升自己的 Java 编程能力。</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-18T23:02:00+00:00">December 18, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/2025/12/01/win11%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BAVMware%E5%AE%89%E8%A3%85ensp/" class="pagination--pager" title="win11如何使用虚拟机VMware安装ensp">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://taciturn-hg.github.io">taciturn-hg&#39;s Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
