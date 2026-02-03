@@ -35,6 +35,7 @@ permalink: /:categories/:year/:month/:day/:title/
 
 # 插件
 plugins:
+  - jekyll-paginate
   - jekyll-include-cache
 
 collections:
