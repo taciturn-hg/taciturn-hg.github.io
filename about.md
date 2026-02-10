@@ -13,9 +13,9 @@ permalink: /about/
 
 ## 兴趣与专长
 
-- **编程语言**：Python、Java、C  
+- **编程语言**：Python、Java
 - **技术方向**：Python（Web 开发、数据分析）、Java（算法与项目开发）
-- **爱好**：技术博客写作、学习笔记整理  
+- **爱好**：技术博客写作、学习笔记整理
 
 ---
 
@@ -29,7 +29,8 @@ permalink: /about/
 
 如果你愿意交流或关注我的动态，可以通过以下方式联系我：
 
-- GitHub: [https://github.com/taciturn-hg](https://github.com/taciturn-hg)  
-- 邮箱: <w430390470@example.com>  
+- GitHub: [https://github.com/taciturn-hg](https://github.com/taciturn-hg)
+- 邮箱: <w430390470@gmail.com>|<430390470@qq.com>
+- 微信：W430390470
 
 ---
