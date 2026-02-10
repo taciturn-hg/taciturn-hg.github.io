@@ -118,7 +118,7 @@ bind-address: 宿主机IP
 ### 确认虚拟机能连到 Clash 端口
 
 ```bash
-curl -v http://192.168.1.4:7890
+curl -v http://宿主机IP:7890
 ```
 
 ![测试](/assets/images/2026-02-03/3-19.png)
@@ -156,3 +156,87 @@ curl www.google.com
 ```
 
 若输出类似前端代码的东西，则测试通过，反之若出现`Could not connect to server`，则连接失败
+
+## 补充
+
+### 使用「开关脚本」控制Linux代理
+
+在原教程配置Linux代理后，总体环境变量就完全走clash代理，如果clash没开对应的配置开关，则无法连上网络，而且打开对应配置开关也会有安全性问题，所以这里建议使用**「开关脚本」**来控制Linux是否使用clash代理。
+
+#### 1、新建两个脚本（开/关代理）
+
+##### 开代理
+
+```
+mkdir -p ~/proxy
+vim ~/proxy/proxy_on.sh
+```
+
+内容（改成你真实的宿主机 IP）：
+
+```bash
+#!/bin/bash
+PROXY_ADDR="http://宿主机IP:7890"
+
+export http_proxy="$PROXY_ADDR"
+export https_proxy="$PROXY_ADDR"
+export all_proxy="$PROXY_ADDR"
+
+echo "✅ Proxy ON -> $PROXY_ADDR"
+```
+
+如果复制粘贴后是下面图片这种，记得把框住的`#`删掉
+
+![命名](/assets/images/2026-02-03/3-20.png)
+
+##### 关代理
+
+```bash
+vim ~/proxy/proxy_off.sh
+```
+
+内容：
+
+```bash
+#!/bin/bash
+
+unset http_proxy https_proxy all_proxy
+echo "❎ Proxy OFF"
+```
+
+#### 2、给执行权限
+
+```bash
+chmod +x ~/proxy/*.sh
+```
+
+#### 3、制作成命令
+
+##### 加进 `.bashrc`
+
+```bash
+vim ~/.bashrc
+```
+
+加到最后：
+
+```bash
+alias proxy-on='source ~/proxy/proxy_on.sh'
+alias proxy-off='source ~/proxy/proxy_off.sh'
+alias proxy-status='env | grep -i proxy'
+```
+
+然后：
+
+```bash
+source ~/.bashrc
+```
+
+#### 4、测试
+
+```bash
+proxy-on      # 走外网 / GitHub / yum
+proxy-off     # 回本地
+proxy-status  # 看当前状态
+```
+
