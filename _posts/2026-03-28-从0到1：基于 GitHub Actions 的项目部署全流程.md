@@ -1,9 +1,9 @@
 ---
 title: "从0到1：基于 GitHub Actions 的项目部署全流程"
-date: 2026-03-28 21:19:20
+date: 2026-03-28 21:19
 categories:
   - skill
-tags: [java,github,vue]
+tags: [java, github, vue]
 layout: single
 ---
 
@@ -135,21 +135,21 @@ layout: single
 
 打开刚刚的MobaXterm，先更新下系统
 
-``````bash
+```bash
 apt update && apt upgrade -y
-``````
+```
 
 ## 1、配置环境
 
 先下载基础的git、nginx、maven，分别对应项目管理、前端托管、后端管理（java）
 
-``````bash
+```bash
 apt install git nginx maven -y
-``````
+```
 
 还有前端的node管理工具nvm
 
-``````bash
+```bash
 # 下载nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
@@ -158,24 +158,24 @@ source ~/.bashrc
 
 # 查看nvm是否安装成功
 nvm -v
-``````
+```
 
 然后可以通过nvm去安装node，这里node版本是22
 
-``````bash
+```bash
 # 安装node 22
 nvm install 22
 
 # 使用node 22
 nvm use 22
-``````
+```
 
 然后安装java，这里是java17
 
-``````bash
+```bash
 apt install openjdk-17-jdk -y
 java -version
-``````
+```
 
 ## 2、配置nginx
 
@@ -183,46 +183,46 @@ java -version
 
 首先到nginx的目录
 
-``````bash
+```bash
 cd /etc/nginx
-``````
+```
 
 这下面有两个文件夹需要我们去设置
 
-``````bash
+```bash
 sites-available/		# 配置文件夹
 sites-enabled/			# 生效的配置文件（软连接指向配置文件夹的配置）
-``````
+```
 
 首先要将两个文件夹里面的default文件删掉
 
-```````bash
+```bash
 rm -rf sites-available/default
 rm -rf sites-enabled/default
-```````
+```
 
 然后编写nginx的配置
 
-```````bash
+```bash
 nano sites-available/项目名.conf		#这里名字最好对应你自己的项目，分项目配置最好
-```````
+```
 
-``````bash
+```bash
 server {
     listen 80;
-    
+
     server_name 0.0.0.0;		# 这个就是域名，没有的话删掉这行即可
-    
+
     root /var/www/项目名;		# 这里对应前端的构建文件地址，后面会讲
     index index.html;
-    
-    location / {   
+
+    location / {
     	try_files $uri $uri/ /index.html;	# 将所有未知路径重定向到 index.html，让前端路由接管
     }
 
     location /api/ {						# 这里的/api/是我项目接口的固定前缀，视项目具体配置而定
         proxy_pass http://127.0.0.1:8080;	# 这里就是后端的访问地址，主要是后面的端口号，看你后端启动之后是多少
-		
+
 		# 下面这些是为了传递真实客户端信息，能避免很多IP获取错误问题，建议加上
         proxy_http_version 1.1;
         proxy_set_header Connection "";
@@ -232,7 +232,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 }
-``````
+```
 
 然后建立软连接应用这些配置
 
@@ -255,13 +255,13 @@ systemctl restart nginx
 ssh-keygen -t rsa -b 4096
 ```
 
-> ssh-keygen	SSH官方工具，用来生成密钥对
+> ssh-keygen SSH官方工具，用来生成密钥对
 >
-> -t rsa	指定加密算法
+> -t rsa 指定加密算法
 >
-> -b 4096	指定密钥长度为4096
+> -b 4096 指定密钥长度为4096
 >
-> -C "item"	（可选）备注密钥
+> -C "item" （可选）备注密钥
 
 执行之后会出现以下几行，直接回车跳过即可
 
@@ -346,18 +346,18 @@ nohup java -jar target/xxx.jar > log.txt 2>&1 &		# 这里的xxx.jar就是target�
 
 > 这里解释下这行命令
 >
-> nohup	让程序在后台持续运行，也就是关了终端也不会停止服务
+> nohup 让程序在后台持续运行，也就是关了终端也不会停止服务
 >
-> java -jar target/xxx.jar	启动你的spring boot项目
+> java -jar target/xxx.jar 启动你的spring boot项目
 >
-> \> log.txt 2>&1	将日志输出到日志文件
+> \> log.txt 2>&1 将日志输出到日志文件
 >
 > ```bash
 > > log.txt       # 标准输出
 > 2>&1            # 错误输出
 > ```
 >
-> &	则是放在后台执行，防止占用终端
+> & 则是放在后台执行，防止占用终端
 
 然后可以在服务器测试下能不能访问
 
@@ -395,7 +395,7 @@ npm run build
 前面在nginx配置里面看到我的文件是放在`/var/www/项目名`下，因为放在root里面的话，nginx访问不到，就无法正常托管前端，所以这里需要把dist里面的东西转移过去
 
 ```bash
-rm -rf /var/www/项目名/*			# 先清理旧数据 
+rm -rf /var/www/项目名/*			# 先清理旧数据
 cp -r dist/* /var/www/项目名/		# 将新数据复制进去
 ```
 
@@ -465,7 +465,7 @@ b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAA...
 ```yaml
 name: Deploy			# 工作流名字
 
-on:						
+on:
   push:
     branches:
       - dev				# 触发条件，在dev分支push的时候触发，这里看你的主分支是哪个
@@ -477,7 +477,7 @@ jobs:					# 任务
     steps:						# 步骤（核心），每一个“-”就是一个步骤
       - name: 拉代码			  # 一个名字叫“拉代码”的步骤
       	# uses表示使用 GitHub 官方提供的一个“现成动作（Action）”，这里是把你的仓库代码 clone 到 CI 服务器
-        uses: actions/checkout@v4	
+        uses: actions/checkout@v4
 
       - name: SSH连接并部署
         run: |					# 这里表示执行一整段多行shell脚本
@@ -485,10 +485,10 @@ jobs:					# 任务
           mkdir -p ~/.ssh	# 创建 SSH 目录
           echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa	# 把 GitHub Secrets 里的私钥写入文件
           chmod 600 ~/.ssh/id_rsa	# 设置权限
-          
+
           # 自动加入服务器指纹以信任服务器（避免交互）
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-		  
+
 		  # 远程执行命令
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'	# 登录服务器，然后执行下面这一整段脚本
             cd /root/item/项目名
@@ -508,7 +508,7 @@ jobs:					# 任务
             export NVM_DIR="$HOME/.nvm"
             source "$NVM_DIR/nvm.sh"
             nvm use 22
-            
+
             cd ../前端文件夹
             npm install
             npm run build
@@ -559,7 +559,7 @@ A：先检查下自己的`application.yml`
 ```yaml
 server:
   profiles:
-    active: prod		# 这里是不是自己的生产环境配置文件
+    active: prod # 这里是不是自己的生产环境配置文件
 ```
 
 然后检查`application-prod.yml`里的数据库配置有没有写对
@@ -606,7 +606,7 @@ systemctl restart nginx
 A：这里是因为Nginx也有文件限制，其默认是1MB的请求体大小，要解决也很简单，在你项目对应的nginx配置文件里面加上这行，**记得重启nginx**
 
 ```yaml
-client_max_body_size 20M;	# 这里就是设置最大请求体大小是20MB
+client_max_body_size 20M; # 这里就是设置最大请求体大小是20MB
 ```
 
 **Q：为什么我跳转到一个页面，只要网址栏不是服务器ip，点击刷新之后就报404呢？**
@@ -696,4 +696,3 @@ server_name 域名 www.域名;
 ```powershell
 nslookup 域名
 ```
-

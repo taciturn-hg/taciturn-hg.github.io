@@ -1,6 +1,6 @@
 ---
 title: "一次“优化”引发的灾难：手动限制内存导致 ACPI_BIOS_ERROR 蓝屏的完整修复实录"
-date: 2026-04-04 18:41:05
+date: 2026-04-04 18:41
 categories:
   - blog
 tags: [windows, system]
