@@ -1,0 +1,618 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>虚拟机Linux配置clash代理 - taciturn-hg’s Blog</title>
+<meta name="description" content="描述 本blog旨在解决虚拟机Linux无法通过clash代理访问外网的问题">
+
+
+  <meta name="author" content="HouGuo">
+  
+  <meta property="article:author" content="HouGuo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="taciturn-hg&#39;s Blog">
+<meta property="og:title" content="虚拟机Linux配置clash代理">
+<meta property="og:url" content="https://taciturn-hg.github.io/blog/2026/02/03/%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E9%85%8D%E7%BD%AEclash%E4%BB%A3%E7%90%86/">
+
+
+  <meta property="og:description" content="描述 本blog旨在解决虚拟机Linux无法通过clash代理访问外网的问题">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-02-03T23:40:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://taciturn-hg.github.io/blog/2026/02/03/%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E9%85%8D%E7%BD%AEclash%E4%BB%A3%E7%90%86/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="taciturn-hg's Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          taciturn-hg&#39;s Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/"
+                
+                
+              >归档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >关于我</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://taciturn-hg.github.io/">
+        <img src="/assets/images/avatar.png" alt="HouGuo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://taciturn-hg.github.io/" itemprop="url">HouGuo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>大二全栈开发初学者，Java &amp; Python</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:w430390470@example.com" rel="me" class="u-email">
+            <meta itemprop="email" content="w430390470@example.com" />
+            <i class="fas fa-fw fa-square-envelope" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="虚拟机Linux配置clash代理">
+    <meta itemprop="description" content="描述本blog旨在解决虚拟机Linux无法通过clash代理访问外网的问题">
+    <meta itemprop="datePublished" content="2026-02-03T23:40:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://taciturn-hg.github.io/blog/2026/02/03/%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E9%85%8D%E7%BD%AEclash%E4%BB%A3%E7%90%86/" itemprop="url">虚拟机Linux配置clash代理
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#描述">描述</a></li><li><a href="#一配置clash">一、配置Clash</a><ul><li><a href="#1获取宿主机ip">1、获取宿主机IP</a></li><li><a href="#2设置clash-for-windows应用配置">2、设置clash for windows应用配置</a><ul><li><a href="#修改clash配置文件">修改clash配置文件</a></li><li><a href="#设置防火墙若是在公共wifi校园网一定得设置">设置防火墙（若是在公共wifi/校园网一定得设置）</a><ul><li><a href="#一httpsocks-代理端口-7890-防护">一、HTTP/SOCKS 代理端口 7890 防护</a></li><li><a href="#二控制面板端口-5055-防护跟上面差不多就不做演示了">二、控制面板端口 5055 防护（跟上面差不多，就不做演示了）</a></li></ul></li></ul></li></ul></li><li><a href="#二虚拟机-linux-配置-clash">二、虚拟机 Linux 配置 Clash</a><ul><li><a href="#确认虚拟机能连到-clash-端口">确认虚拟机能连到 Clash 端口</a></li><li><a href="#linux-shell-代理配置">Linux Shell 代理配置</a></li></ul></li><li><a href="#三配置完成测试">三、配置完成，测试</a></li><li><a href="#补充">补充</a><ul><li><a href="#使用开关脚本控制linux代理">使用「开关脚本」控制Linux代理</a><ul><li><a href="#1新建两个脚本开关代理">1、新建两个脚本（开/关代理）</a><ul><li><a href="#开代理">开代理</a></li><li><a href="#关代理">关代理</a></li></ul></li><li><a href="#2给执行权限">2、给执行权限</a></li><li><a href="#3制作成命令">3、制作成命令</a><ul><li><a href="#加进-bashrc">加进 .bashrc</a></li></ul></li><li><a href="#4测试">4、测试</a></li></ul></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="描述">描述</h2>
+<p>本blog旨在解决虚拟机Linux无法通过clash代理访问外网的问题</p>
+
+<hr />
+
+<h2 id="一配置clash">一、配置Clash</h2>
+
+<h3 id="1获取宿主机ip">1、获取宿主机IP</h3>
+
+<p>通过<code class="language-plaintext highlighter-rouge">win+r</code>打开运行，输入<code class="language-plaintext highlighter-rouge">cmd</code>打开命令窗，在命令窗输入<code class="language-plaintext highlighter-rouge">ipconfig</code>获取网络信息</p>
+
+<p><img src="/assets/images/2026-02-03/3-1.png" alt="ipconfig" /></p>
+
+<p>例如图中框起来的<code class="language-plaintext highlighter-rouge">192.168.1.4</code>即为宿主机IP</p>
+
+<h3 id="2设置clash-for-windows应用配置">2、设置clash for windows应用配置</h3>
+
+<p><img src="/assets/images/2026-02-03/3-2.png" alt="clash for windows主页配置" /></p>
+
+<ol>
+  <li>从图中能确认代理端口为7890</li>
+  <li>第二个“允许局域网连接入clash”建议只在虚拟机需要连接外网时才开启，使用完毕就关闭，因为开启之后会让本局域网所有人都通过你的clash代理端口访问，所以强烈建议开启前先做以下配置以提高安全性</li>
+</ol>
+
+<h4 id="修改clash配置文件">修改clash配置文件</h4>
+
+<p>通过以下步骤打开<code class="language-plaintext highlighter-rouge">config.yaml</code></p>
+
+<p><img src="/assets/images/2026-02-03/3-3.png" alt="配置1" /></p>
+
+<p><img src="/assets/images/2026-02-03/3-4.png" alt="配置2" /></p>
+
+<p><img src="/assets/images/2026-02-03/3-5.png" alt="配置3" /></p>
+
+<p>打开<code class="language-plaintext highlighter-rouge">config.yaml</code>后你的原始配置应该跟我大差不差，不过只需要用下面内容覆盖上图框起来的这四行</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mixed-port: 7890
+allow-lan: true
+external-controller: '宿主机IP:5055'
+secret: "taciturn-hg_2007_clash_secure_zxcvbnm"   # 随便写，在20位以上即可，不要空着
+bind-address: 宿主机IP
+</code></pre></div></div>
+
+<p>修改完后到右下角找到clash并重启</p>
+
+<p><img src="/assets/images/2026-02-03/3-6.png" alt="clash重启" /></p>
+
+<h4 id="设置防火墙若是在公共wifi校园网一定得设置">设置防火墙（若是在公共wifi/校园网一定得设置）</h4>
+
+<h5 id="一httpsocks-代理端口-7890-防护">一、HTTP/SOCKS 代理端口 7890 防护</h5>
+
+<ol>
+  <li>
+    <p>打开 <strong>控制面板 → 系统和安全 → Windows 防火墙 → 高级设置 → 入站规则 → 新建规则</strong></p>
+
+    <p><img src="/assets/images/2026-02-03/3-7.png" alt="控制面板" /></p>
+
+    <p><img src="/assets/images/2026-02-03/3-8.png" alt="防火墙1" /></p>
+
+    <p><img src="/assets/images/2026-02-03/3-9.png" alt="防火墙2" /></p>
+
+    <p><img src="/assets/images/2026-02-03/3-10.png" alt="防火墙3" /></p>
+
+    <p><img src="/assets/images/2026-02-03/3-11.png" alt="防火墙4" /></p>
+  </li>
+  <li>
+    <p>规则类型选择 <strong>端口 → TCP → 特定本地端口 → 7890</strong></p>
+
+    <p><img src="/assets/images/2026-02-03/3-12.png" alt="端口1" /></p>
+
+    <p><img src="/assets/images/2026-02-03/3-13.png" alt="端口2" /></p>
+  </li>
+  <li>
+    <p>操作选择 <strong>允许连接</strong></p>
+
+    <p><img src="/assets/images/2026-02-03/3-14.png" alt="允许连接" /></p>
+  </li>
+  <li>
+    <p>配置文件选择 <strong>域、专用</strong>（不要选择公用网络）</p>
+
+    <p><img src="/assets/images/2026-02-03/3-15.png" alt="配置文件" /></p>
+  </li>
+  <li>
+    <p>名称命名，例如 <code class="language-plaintext highlighter-rouge">Clash Proxy 7890</code></p>
+
+    <p><img src="/assets/images/2026-02-03/3-16.png" alt="命名" /></p>
+  </li>
+  <li>
+    <p>新建后右键 → 属性 → 作用范围（Scope）</p>
+  </li>
+  <li>
+    <p>远程 IP 地址设置为 <strong>指定设备的 IP</strong>（如你的手机或虚拟机）</p>
+
+    <p><img src="/assets/images/2026-02-03/3-17.png" alt="命名" /></p>
+
+    <p><strong>虚拟机linux的IP可以在其终端输入<code class="language-plaintext highlighter-rouge">ifconfig</code>查看</strong></p>
+
+    <p><img src="/assets/images/2026-02-03/3-18.png" alt="命名" /></p>
+  </li>
+  <li>
+    <p>保存配置</p>
+  </li>
+</ol>
+
+<h5 id="二控制面板端口-5055-防护跟上面差不多就不做演示了">二、控制面板端口 5055 防护（跟上面差不多，就不做演示了）</h5>
+
+<ol>
+  <li>同样<strong>新建规则 → TCP → 5055</strong></li>
+  <li><strong>允许连接 → 域、专用</strong></li>
+  <li>名称例如 <code class="language-plaintext highlighter-rouge">Clash Control 5055</code></li>
+  <li>属性 → 作用范围 → 远程 IP 地址设置为你的手机或虚拟机</li>
+  <li>保存配置</li>
+</ol>
+
+<h2 id="二虚拟机-linux-配置-clash">二、虚拟机 Linux 配置 Clash</h2>
+
+<blockquote>
+  <p>前提：</p>
+
+  <ul>
+    <li><strong>Clash 跑在 Windows 宿主机</strong></li>
+    <li>端口：<code class="language-plaintext highlighter-rouge">7890</code></li>
+    <li>Linux 能访问宿主机 IP（如 <code class="language-plaintext highlighter-rouge">192.168.1.4</code>）</li>
+  </ul>
+</blockquote>
+
+<h3 id="确认虚拟机能连到-clash-端口">确认虚拟机能连到 Clash 端口</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-v</span> http://宿主机IP:7890
+</code></pre></div></div>
+
+<p><img src="/assets/images/2026-02-03/3-19.png" alt="测试" />
+连不上 = 网络模式问题（NAT / 桥接)</p>
+
+<h3 id="linux-shell-代理配置">Linux Shell 代理配置</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.bashrc
+</code></pre></div></div>
+
+<p>在文件后面追加以下配置</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PROXY_ADDR</span><span class="o">=</span><span class="s2">"http://宿主机IP:7890"</span>
+
+<span class="nb">export </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>使其生效</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
+
+<h2 id="三配置完成测试">三、配置完成，测试</h2>
+
+<p>在虚拟机linux命令窗输入命令</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl www.google.com
+</code></pre></div></div>
+
+<p>若输出类似前端代码的东西，则测试通过，反之若出现<code class="language-plaintext highlighter-rouge">Could not connect to server</code>，则连接失败</p>
+
+<h2 id="补充">补充</h2>
+
+<h3 id="使用开关脚本控制linux代理">使用「开关脚本」控制Linux代理</h3>
+
+<p>在原教程配置Linux代理后，总体环境变量就完全走clash代理，如果clash没开对应的配置开关，则无法连上网络，而且打开对应配置开关也会有安全性问题，所以这里建议使用<strong>「开关脚本」</strong>来控制Linux是否使用clash代理。</p>
+
+<h4 id="1新建两个脚本开关代理">1、新建两个脚本（开/关代理）</h4>
+
+<h5 id="开代理">开代理</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p ~/proxy
+vim ~/proxy/proxy_on.sh
+</code></pre></div></div>
+
+<p>内容（改成你真实的宿主机 IP）：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">PROXY_ADDR</span><span class="o">=</span><span class="s2">"http://宿主机IP:7890"</span>
+
+<span class="nb">export </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">all_proxy</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+
+<span class="nb">echo</span> <span class="s2">"✅ Proxy ON -&gt; </span><span class="nv">$PROXY_ADDR</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>如果复制粘贴后是下面图片这种，记得把框住的<code class="language-plaintext highlighter-rouge">#</code>删掉</p>
+
+<p><img src="/assets/images/2026-02-03/3-20.png" alt="命名" /></p>
+
+<h5 id="关代理">关代理</h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/proxy/proxy_off.sh
+</code></pre></div></div>
+
+<p>内容：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">unset </span>http_proxy https_proxy all_proxy
+<span class="nb">echo</span> <span class="s2">"❎ Proxy OFF"</span>
+</code></pre></div></div>
+
+<h4 id="2给执行权限">2、给执行权限</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x ~/proxy/<span class="k">*</span>.sh
+</code></pre></div></div>
+
+<h4 id="3制作成命令">3、制作成命令</h4>
+
+<h5 id="加进-bashrc">加进 <code class="language-plaintext highlighter-rouge">.bashrc</code></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.bashrc
+</code></pre></div></div>
+
+<p>加到最后：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span>proxy-on<span class="o">=</span><span class="s1">'source ~/proxy/proxy_on.sh'</span>
+<span class="nb">alias </span>proxy-off<span class="o">=</span><span class="s1">'source ~/proxy/proxy_off.sh'</span>
+<span class="nb">alias </span>proxy-status<span class="o">=</span><span class="s1">'env | grep -i proxy'</span>
+</code></pre></div></div>
+
+<p>然后：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
+
+<h4 id="4测试">4、测试</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>proxy-on      <span class="c"># 走外网 / GitHub / yum</span>
+proxy-off     <span class="c"># 回本地</span>
+proxy-status  <span class="c"># 看当前状态</span>
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-02-03T23:40:00+00:00">February 3, 2026</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/blog/2026/02/03/Vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="pagination--pager" title="Vim 常用命令速查表">Previous</a>
+    
+    
+      <a href="/blog/2026/02/15/%E5%9C%A8-Windows-%E4%B8%8A%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E8%84%9A%E6%9C%AC/" class="pagination--pager" title="Windows 一键代理开关脚本（proxy-on / proxy-off / proxy-status）">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://taciturn-hg.github.io">taciturn-hg&#39;s Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

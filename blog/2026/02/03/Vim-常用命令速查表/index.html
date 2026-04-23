@@ -1,0 +1,792 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Vim 常用命令速查表 - taciturn-hg’s Blog</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="HouGuo">
+  
+  <meta property="article:author" content="HouGuo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="taciturn-hg&#39;s Blog">
+<meta property="og:title" content="Vim 常用命令速查表">
+<meta property="og:url" content="https://taciturn-hg.github.io/blog/2026/02/03/Vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-02-03T21:03:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://taciturn-hg.github.io/blog/2026/02/03/Vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="taciturn-hg's Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          taciturn-hg&#39;s Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/"
+                
+                
+              >归档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >关于我</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://taciturn-hg.github.io/">
+        <img src="/assets/images/avatar.png" alt="HouGuo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://taciturn-hg.github.io/" itemprop="url">HouGuo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>大二全栈开发初学者，Java &amp; Python</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:w430390470@example.com" rel="me" class="u-email">
+            <meta itemprop="email" content="w430390470@example.com" />
+            <i class="fas fa-fw fa-square-envelope" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Vim 常用命令速查表">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2026-02-03T21:03:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://taciturn-hg.github.io/blog/2026/02/03/Vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/" itemprop="url">Vim 常用命令速查表
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#一模式切换">一、模式切换</a></li><li><a href="#二光标移动命令模式">二、光标移动（命令模式）</a><ul><li><a href="#基础移动">基础移动</a></li><li><a href="#行内移动">行内移动</a></li><li><a href="#单词级移动">单词级移动</a></li><li><a href="#文件级移动">文件级移动</a></li></ul></li><li><a href="#三删除--剪切">三、删除 / 剪切</a></li><li><a href="#四复制--粘贴">四、复制 / 粘贴</a></li><li><a href="#五修改删除--插入">五、修改（删除 + 插入）</a></li><li><a href="#六撤销--重做">六、撤销 / 重做</a></li><li><a href="#七查找与搜索">七、查找与搜索</a></li><li><a href="#八可视模式操作">八、可视模式操作</a></li><li><a href="#九底线命令保存--退出">九、底线命令（保存 / 退出）</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p><img src="/assets/images/2026-02-03/1-1.png" alt="vim工作原理图" /></p>
+
+<h2 id="一模式切换">一、模式切换</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Esc</code></td>
+      <td>回到命令模式</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">i</code></td>
+      <td>光标前插入</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">a</code></td>
+      <td>光标后插入</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">o</code></td>
+      <td>下一行新建并插入</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">O</code></td>
+      <td>上一行新建并插入</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:</code></td>
+      <td>进入底线命令模式</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">v</code></td>
+      <td>字符可视模式</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">V</code></td>
+      <td>行可视模式</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + v</code></td>
+      <td>块可视模式</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="二光标移动命令模式">二、光标移动（命令模式）</h2>
+
+<h3 id="基础移动">基础移动</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">h</code></td>
+      <td>左移</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">j</code></td>
+      <td>下移</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">k</code></td>
+      <td>上移</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">l</code></td>
+      <td>右移</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="行内移动">行内移动</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td>行首</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">^</code></td>
+      <td>行首第一个非空字符</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$</code></td>
+      <td>行尾</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="单词级移动">单词级移动</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">w</code></td>
+      <td>下一个单词开头</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">e</code></td>
+      <td>单词结尾</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">b</code></td>
+      <td>上一个单词开头</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="文件级移动">文件级移动</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gg</code></td>
+      <td>文件第一行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">G</code></td>
+      <td>文件最后一行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:n</code></td>
+      <td>跳转到第 n 行</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="三删除--剪切">三、删除 / 剪切</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">x</code></td>
+      <td>删除当前字符</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dd</code></td>
+      <td>删除当前行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">D</code></td>
+      <td>删除到行尾</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dw</code></td>
+      <td>删除一个单词</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">d$</code></td>
+      <td>删除到行尾</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">d0</code></td>
+      <td>删除到行首</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>📌 <strong>通用规则：</strong>
+<code class="language-plaintext highlighter-rouge">d + 移动命令</code></p>
+
+<hr />
+
+<h2 id="四复制--粘贴">四、复制 / 粘贴</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">yy</code></td>
+      <td>复制当前行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">yw</code></td>
+      <td>复制一个单词</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">y$</code></td>
+      <td>复制到行尾</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">p</code></td>
+      <td>光标后粘贴</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">P</code></td>
+      <td>光标前粘贴</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="五修改删除--插入">五、修改（删除 + 插入）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cw</code></td>
+      <td>修改一个单词</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cc</code></td>
+      <td>修改整行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">c$</code></td>
+      <td>修改到行尾</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>📌 <strong>通用规则：</strong>
+<code class="language-plaintext highlighter-rouge">c + 移动命令</code></p>
+
+<hr />
+
+<h2 id="六撤销--重做">六、撤销 / 重做</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">u</code></td>
+      <td>撤销</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + r</code></td>
+      <td>重做</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="七查找与搜索">七、查找与搜索</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/关键字</code></td>
+      <td>向下搜索</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">?关键字</code></td>
+      <td>向上搜索</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">n</code></td>
+      <td>下一个匹配</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">N</code></td>
+      <td>上一个匹配</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">*</code></td>
+      <td>搜索当前单词（向下）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">#</code></td>
+      <td>搜索当前单词（向上）</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="八可视模式操作">八、可视模式操作</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">v</code></td>
+      <td>字符可视模式</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">V</code></td>
+      <td>行可视模式</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Ctrl + v</code></td>
+      <td>块可视模式</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">d</code></td>
+      <td>删除选中内容</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">y</code></td>
+      <td>复制选中内容</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;</code> / <code class="language-plaintext highlighter-rouge">&lt;</code></td>
+      <td>缩进 / 反缩进</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="九底线命令保存--退出">九、底线命令（保存 / 退出）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:w</code></td>
+      <td>保存</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:q</code></td>
+      <td>退出</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:wq</code></td>
+      <td>保存并退出</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:q!</code></td>
+      <td>强制退出</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:set nu</code></td>
+      <td>显示行号</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">:set nonu</code></td>
+      <td>关闭行号</td>
+    </tr>
+  </tbody>
+</table>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-02-03T21:03:00+00:00">February 3, 2026</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/blog/2026/02/03/Linux%E5%9F%BA%E7%A1%80/" class="pagination--pager" title="Linux基础">Previous</a>
+    
+    
+      <a href="/blog/2026/02/03/%E8%99%9A%E6%8B%9F%E6%9C%BALinux%E9%85%8D%E7%BD%AEclash%E4%BB%A3%E7%90%86/" class="pagination--pager" title="虚拟机Linux配置clash代理">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://taciturn-hg.github.io">taciturn-hg&#39;s Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

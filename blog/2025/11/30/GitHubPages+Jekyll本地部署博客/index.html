@@ -1,0 +1,606 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>GitHub Pages + Jekyll 本地部署博客 - taciturn-hg’s Blog</title>
+<meta name="description" content="前言 本博客作为我的第一篇技术博客，有些细节可能讲的不是很清晰或者有矛盾，请见谅，错误点和矛盾点可以到我的github账号或者email邮箱反馈，我会及时修正">
+
+
+  <meta name="author" content="HouGuo">
+  
+  <meta property="article:author" content="HouGuo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="taciturn-hg&#39;s Blog">
+<meta property="og:title" content="GitHub Pages + Jekyll 本地部署博客">
+<meta property="og:url" content="https://taciturn-hg.github.io/blog/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/">
+
+
+  <meta property="og:description" content="前言 本博客作为我的第一篇技术博客，有些细节可能讲的不是很清晰或者有矛盾，请见谅，错误点和矛盾点可以到我的github账号或者email邮箱反馈，我会及时修正">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-11-30T23:30:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://taciturn-hg.github.io/blog/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="taciturn-hg's Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          taciturn-hg&#39;s Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/"
+                
+                
+              >归档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >关于我</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://taciturn-hg.github.io/">
+        <img src="/assets/images/avatar.png" alt="HouGuo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://taciturn-hg.github.io/" itemprop="url">HouGuo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>大二全栈开发初学者，Java &amp; Python</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:w430390470@example.com" rel="me" class="u-email">
+            <meta itemprop="email" content="w430390470@example.com" />
+            <i class="fas fa-fw fa-square-envelope" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="GitHub Pages + Jekyll 本地部署博客">
+    <meta itemprop="description" content="前言本博客作为我的第一篇技术博客，有些细节可能讲的不是很清晰或者有矛盾，请见谅，错误点和矛盾点可以到我的github账号或者email邮箱反馈，我会及时修正">
+    <meta itemprop="datePublished" content="2025-11-30T23:30:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://taciturn-hg.github.io/blog/2025/11/30/GitHubPages+Jekyll%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" itemprop="url">GitHub Pages + Jekyll 本地部署博客
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#前言">前言</a></li><li><a href="#描述">描述</a></li><li><a href="#教程">教程</a><ul><li><a href="#第一步准备环境">第一步：准备环境</a></li></ul></li><li><a href="#第二步安装jekyll与bundler">第二步：安装Jekyll与Bundler</a></li><li><a href="#第三步安装依赖">第三步：安装依赖</a></li><li><a href="#第四步添加gitignore文件内容">第四步：添加.gitignore文件内容</a></li><li><a href="#第五步本地启动博客">第五步：本地启动博客</a></li><li><a href="#补充">补充</a><ul><li><a href="#一制作脚本">一、制作脚本</a><ul><li><a href="#1在项目根目录下创建startps1文件">1、在项目根目录下创建start.ps1文件</a></li><li><a href="#2在项目根目录下创建startbat文件">2、在项目根目录下创建start.bat文件</a></li></ul></li><li><a href="#二添加gitignore内容">二、添加.gitignore内容</a></li><li><a href="#三启动脚本">三、启动脚本</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="前言">前言</h1>
+<p>本博客作为我的第一篇技术博客，有些细节可能讲的不是很清晰或者有矛盾，请见谅，错误点和矛盾点可以到我的github账号或者email邮箱反馈，我会及时修正</p>
+
+<hr />
+
+<h1 id="描述">描述</h1>
+<p>写博客时，若要查看博客更改的信息，我们得先从git提交到我们的远程github仓库，才能看到效果，还有可能提交完结果报错，运行不起来，最后还得回退，及其的麻烦，于是我通过询问AI，找到这么一个方法让我们能直接在本地运行我们的blog，保存代码后直接刷新即可看到最新效果，及其方便，好了教程开始</p>
+
+<hr />
+
+<h1 id="教程">教程</h1>
+<h2 id="第一步准备环境">第一步：准备环境</h2>
+<p>1、安装Ruby,可以去到其官网（https://rubyinstaller.org/downloads/），直接下载最新的Ruby+Devkit<img src="/assets/images/2025-11-30/2-1.png" alt="ruby官网下载" />
+<strong>安装时注意：</strong><br />
+1、勾选上 Run ‘ridk install’（自动安装 MSYS2）<br />
+2、打开后选择：1 → Enter（安装基础组件)<br />
+验证是否成功：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -v
+gem -v
+</code></pre></div></div>
+<p>如果能显示版本，说明 OK。</p>
+
+<hr />
+
+<h1 id="第二步安装jekyll与bundler">第二步：安装Jekyll与Bundler</h1>
+<p>执行：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install bundler jekyll
+</code></pre></div></div>
+<p>成功后检查：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll -v
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="第三步安装依赖">第三步：安装依赖</h1>
+<p>1、先进入到本地博客根目录<img src="/assets/images/2025-11-30/2-2.png" alt="本地博客目录1" /></p>
+
+<p>2、在上面文件路径窗口里面输入<code class="language-plaintext highlighter-rouge">cmd</code>打开此位置的命令窗<br />
+<strong><em>或者先<code class="language-plaintext highlighter-rouge">win+R</code>打开运行，输入<code class="language-plaintext highlighter-rouge">cmd</code><br />
+打开命令窗后先输入<code class="language-plaintext highlighter-rouge">E：</code>（主要看你项目在哪个盘）切换盘符<br />
+再使用<code class="language-plaintext highlighter-rouge">cd E:\ITEM\taciturn-hg.github.io</code>（取决于你的项目绝对路径）进入项目根目录</em></strong>
+<img src="/assets/images/2025-11-30/2-3.png" alt="命令窗" /></p>
+
+<p>3、如果项目里面有<code class="language-plaintext highlighter-rouge">Gemfile</code>文件，则在命令窗执行</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+</code></pre></div></div>
+<p>如果没有，则需自行在项目根目录创建文件<code class="language-plaintext highlighter-rouge">Gemfile</code>，内容示例：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source "https://gems.ruby-china.com/"
+
+gem "jekyll", "~&gt; 4.3.2"
+gem "github-pages", group: :jekyll_plugins
+</code></pre></div></div>
+<p>然后执行：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="第四步添加gitignore文件内容">第四步：添加<code class="language-plaintext highlighter-rouge">.gitignore</code>文件内容</h1>
+
+<p>因为本地预览博客他会创建一些构建文件和缓存，而这些东西实际上没必要推送到github上</p>
+
+<p>所以要在<code class="language-plaintext highlighter-rouge">.gitignore</code>文件里面添加以下内容，在提交时会自动忽略这些文件</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Jekyll build output
+_site/
+
+# Jekyll cache
+.jekyll-cache/
+
+# Bundler
+.bundle/
+
+.jekyll-metadata
+</code></pre></div></div>
+
+<h1 id="第五步本地启动博客">第五步：本地启动博客</h1>
+
+<p>上述步骤均完成后，在项目根目录下打开<code class="language-plaintext highlighter-rouge">cmd</code>，运行：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div></div>
+<p>或：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve
+</code></pre></div></div>
+<p>成功后会看到类似：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Server address: http://127.0.0.1:4000/
+</code></pre></div></div>
+<p>就可以在网站使用<code class="language-plaintext highlighter-rouge">http://127.0.0.1:4000/</code>去访问本地博客了！</p>
+
+<h1 id="补充">补充</h1>
+
+<p>当然了，如果觉得命令不好记，想一键启动并自动打开浏览器，可以根据以下内容编写启动脚本</p>
+
+<h2 id="一制作脚本">一、制作脚本</h2>
+
+<h3 id="1在项目根目录下创建startps1文件">1、在项目根目录下创建<code class="language-plaintext highlighter-rouge">start.ps1</code>文件</h3>
+
+<p>这里建议使用vscode打开此文件，然后按<code class="language-plaintext highlighter-rouge">ctrl+shift+p</code>打开运行命令窗口，根据下图顺序操作</p>
+
+<p><img src="/assets/images/2025-11-30/2-4.png" alt="命令窗口1" /></p>
+
+<p><img src="/assets/images/2025-11-30/2-5.png" alt="命令窗口2" /></p>
+
+<p><img src="/assets/images/2025-11-30/2-6.png" alt="命令窗口3" /></p>
+
+<p><strong><em>注：因为powershell的中文编码格式为<code class="language-plaintext highlighter-rouge">GBK</code>，所以正常的<code class="language-plaintext highlighter-rouge">utf-8</code>格式的中文在powershell里面输出会变成乱码</em></strong></p>
+
+<p>然后在<code class="language-plaintext highlighter-rouge">start.ps1</code>文件内输入以下内容：</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ==============================</span><span class="w">
+</span><span class="c"># Jekyll Smart Starter (PS5 Safe)</span><span class="w">
+</span><span class="c"># ==============================</span><span class="w">
+
+</span><span class="bp">$Error</span><span class="n">ActionPreference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Continue"</span><span class="w">
+</span><span class="bp">$Host</span><span class="o">.</span><span class="nf">UI</span><span class="o">.</span><span class="nf">RawUI</span><span class="o">.</span><span class="nf">WindowTitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Jekyll Dev Server"</span><span class="w">
+
+</span><span class="c"># 进入项目根目录</span><span class="w">
+</span><span class="nv">$root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Split-Path</span><span class="w"> </span><span class="nt">-Parent</span><span class="w"> </span><span class="bp">$MyInvocation</span><span class="o">.</span><span class="nf">MyCommand</span><span class="o">.</span><span class="nf">Definition</span><span class="w">
+</span><span class="nx">Set-Location</span><span class="w"> </span><span class="nv">$root</span><span class="w">
+
+</span><span class="kr">function</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="nv">$msg</span><span class="p">,</span><span class="w"> </span><span class="nv">$color</span><span class="o">=</span><span class="s2">"White"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Write-Host</span><span class="w"> </span><span class="nv">$msg</span><span class="w"> </span><span class="nt">-ForegroundColor</span><span class="w"> </span><span class="nv">$color</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="n">Log</span><span class="w"> </span><span class="s2">"</span><span class="se">`n</span><span class="s2">=== Jekyll Development Server ==="</span><span class="w"> </span><span class="nx">Cyan</span><span class="w">
+
+</span><span class="c"># ---------- Ruby ----------</span><span class="w">
+</span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">Get-Command</span><span class="w"> </span><span class="nx">ruby</span><span class="w"> </span><span class="nt">-ErrorAction</span><span class="w"> </span><span class="nx">SilentlyContinue</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Log</span><span class="w"> </span><span class="s2">"未检测到 Ruby，请先安装 Ruby + DevKit"</span><span class="w"> </span><span class="nx">Red</span><span class="w">
+    </span><span class="n">pause</span><span class="w">
+    </span><span class="nx">exit</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c"># ---------- Bundler ----------</span><span class="w">
+</span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">Get-Command</span><span class="w"> </span><span class="nx">bundle</span><span class="w"> </span><span class="nt">-ErrorAction</span><span class="w"> </span><span class="nx">SilentlyContinue</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Log</span><span class="w"> </span><span class="s2">"安装 bundler..."</span><span class="w"> </span><span class="nx">Yellow</span><span class="w">
+    </span><span class="n">gem</span><span class="w"> </span><span class="nx">install</span><span class="w"> </span><span class="nx">bundler</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c"># ---------- bundle install 智能检测 ----------</span><span class="w">
+</span><span class="nv">$lockHashFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">".jekyll.lockhash"</span><span class="w">
+
+</span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="n">Test-Path</span><span class="w"> </span><span class="s2">"Gemfile.lock"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nv">$currentHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Get-FileHash</span><span class="w"> </span><span class="s2">"Gemfile.lock"</span><span class="p">)</span><span class="o">.</span><span class="nf">Hash</span><span class="w">
+</span><span class="p">}</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nv">$currentHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"none"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="nv">$needInstall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">$true</span><span class="w">
+</span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="n">Test-Path</span><span class="w"> </span><span class="nv">$lockHashFile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nv">$oldHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get-Content</span><span class="w"> </span><span class="nv">$lockHashFile</span><span class="w"> </span><span class="nt">-ErrorAction</span><span class="w"> </span><span class="nx">SilentlyContinue</span><span class="w">
+    </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$oldHash</span><span class="w"> </span><span class="o">-eq</span><span class="w"> </span><span class="nv">$currentHash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$needInstall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">$false</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$needInstall</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Log</span><span class="w"> </span><span class="s2">"安装依赖..."</span><span class="w"> </span><span class="nx">Yellow</span><span class="w">
+    </span><span class="n">bundle</span><span class="w"> </span><span class="nx">install</span><span class="w">
+    </span><span class="nv">$currentHash</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Out-File</span><span class="w"> </span><span class="nv">$lockHashFile</span><span class="w"> </span><span class="nt">-Encoding</span><span class="w"> </span><span class="nx">ascii</span><span class="w">
+</span><span class="p">}</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Log</span><span class="w"> </span><span class="s2">"依赖未变化，跳过 bundle install"</span><span class="w"> </span><span class="nx">DarkGray</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c"># ---------- 关闭 4000 端口 ----------</span><span class="w">
+</span><span class="nv">$port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4000</span><span class="w">
+</span><span class="nv">$occupied</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">netstat</span><span class="w"> </span><span class="nt">-ano</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Select-String</span><span class="w"> </span><span class="s2">":</span><span class="nv">$port</span><span class="s2"> "</span><span class="w">
+
+</span><span class="kr">foreach</span><span class="w"> </span><span class="p">(</span><span class="nv">$line</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">$occupied</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nv">$procId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">$line</span><span class="w"> </span><span class="o">-split</span><span class="w"> </span><span class="s2">"\s+"</span><span class="p">)[</span><span class="nt">-1</span><span class="p">]</span><span class="w">
+    </span><span class="kr">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Stop-Process</span><span class="w"> </span><span class="nt">-Id</span><span class="w"> </span><span class="nv">$procId</span><span class="w"> </span><span class="nt">-Force</span><span class="w"> </span><span class="nt">-ErrorAction</span><span class="w"> </span><span class="nx">SilentlyContinue</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">catch</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c"># ---------- 启动浏览器监听进程 ----------</span><span class="w">
+</span><span class="nv">$watchScript</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sh">@"
+while (</span><span class="se">`$</span><span class="sh">true) {
+    try {
+        </span><span class="se">`$</span><span class="sh">r = Invoke-WebRequest http://127.0.0.1:4000 -UseBasicParsing -TimeoutSec 2
+        if (</span><span class="se">`$</span><span class="sh">r.StatusCode -eq 200) {
+            Start-Process http://127.0.0.1:4000
+            break
+        }
+    } catch {}
+    Start-Sleep 1
+}
+"@</span><span class="w">
+
+</span><span class="nv">$watchFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"</span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">TEMP</span><span class="s2">\jekyll-wait.ps1"</span><span class="w">
+</span><span class="nv">$watchScript</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Out-File</span><span class="w"> </span><span class="nv">$watchFile</span><span class="w"> </span><span class="nt">-Encoding</span><span class="w"> </span><span class="nx">ascii</span><span class="w">
+
+</span><span class="n">Start-Process</span><span class="w"> </span><span class="nx">powershell</span><span class="w"> </span><span class="nt">-ArgumentList</span><span class="w"> </span><span class="s2">"-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File </span><span class="se">`"</span><span class="nv">$watchFile</span><span class="se">`"</span><span class="s2">"</span><span class="w">
+
+</span><span class="c"># ---------- 启动 ----------</span><span class="w">
+</span><span class="n">Log</span><span class="w"> </span><span class="s2">"启动 Jekyll..."</span><span class="w"> </span><span class="nx">Green</span><span class="w">
+</span><span class="n">bundle</span><span class="w"> </span><span class="nx">exec</span><span class="w"> </span><span class="nx">jekyll</span><span class="w"> </span><span class="nx">serve</span><span class="w"> </span><span class="nt">--livereload</span><span class="w"> </span><span class="nt">--incremental</span><span class="w"> </span><span class="nt">--trace</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ctrl+S</code>保存文件</p>
+
+<h3 id="2在项目根目录下创建startbat文件">2、在项目根目录下创建<code class="language-plaintext highlighter-rouge">start.bat</code>文件</h3>
+
+<p>这个文件不用像<code class="language-plaintext highlighter-rouge">start.ps1</code>一样重新编码，直接在文件内输入下面代码：</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="n">echo</span><span class="w"> </span><span class="nx">off</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="nx">/d</span><span class="w"> </span><span class="o">%</span><span class="nx">~dp0</span><span class="w">
+</span><span class="n">powershell</span><span class="w"> </span><span class="nt">-ExecutionPolicy</span><span class="w"> </span><span class="nx">Bypass</span><span class="w"> </span><span class="nt">-File</span><span class="w"> </span><span class="nx">start.ps1</span><span class="w">
+</span><span class="n">pause</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ctrl+S</code>保存文件</p>
+
+<h2 id="二添加gitignore内容">二、添加<code class="language-plaintext highlighter-rouge">.gitignore</code>内容</h2>
+
+<p>启动脚本会创建一个进程锁，同时创建一个<code class="language-plaintext highlighter-rouge">.jekyll.lockhash</code>占位锁文件，防止并发运行</p>
+
+<p>这个文件也是没必要推送到github，所以直接在<code class="language-plaintext highlighter-rouge">.gitignore</code>文件内容后面加上<code class="language-plaintext highlighter-rouge">.jekyll.lockhash</code>即可</p>
+
+<h2 id="三启动脚本">三、启动脚本</h2>
+
+<p>在项目根目录下双击<code class="language-plaintext highlighter-rouge">start.bat</code>文件</p>
+
+<p>也可以打开<code class="language-plaintext highlighter-rouge">powershell</code>或<code class="language-plaintext highlighter-rouge">cmd</code>，<code class="language-plaintext highlighter-rouge">cd</code>进入到项目根目录输入<code class="language-plaintext highlighter-rouge">start.bat</code>也可以启动</p>
+
+<p>等待一会就会自动启动浏览器页面了</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-30T23:30:00+00:00">November 30, 2025</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/blog/2025/11/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="pagination--pager" title="我的第一篇博客">Previous</a>
+    
+    
+      <a href="/blog/2025/12/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" class="pagination--pager" title="如何创建属于自己的博客">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://taciturn-hg.github.io">taciturn-hg&#39;s Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1035 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>从0到1：基于 GitHub Actions 的项目部署全流程 - taciturn-hg’s Blog</title>
+<meta name="description" content="记录一次完整的项目上线过程">
+
+
+  <meta name="author" content="HouGuo">
+  
+  <meta property="article:author" content="HouGuo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="taciturn-hg&#39;s Blog">
+<meta property="og:title" content="从0到1：基于 GitHub Actions 的项目部署全流程">
+<meta property="og:url" content="https://taciturn-hg.github.io/skill/2026/03/28/%E4%BB%8E0%E5%88%B01-%E5%9F%BA%E4%BA%8E-GitHub-Actions-%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B/">
+
+
+  <meta property="og:description" content="记录一次完整的项目上线过程">
+
+
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-03-28T21:19:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://taciturn-hg.github.io/skill/2026/03/28/%E4%BB%8E0%E5%88%B01-%E5%9F%BA%E4%BA%8E-GitHub-Actions-%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="taciturn-hg's Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          taciturn-hg&#39;s Blog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/"
+                
+                
+              >归档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >关于我</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://taciturn-hg.github.io/">
+        <img src="/assets/images/avatar.png" alt="HouGuo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://taciturn-hg.github.io/" itemprop="url">HouGuo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>大二全栈开发初学者，Java &amp; Python</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:w430390470@example.com" rel="me" class="u-email">
+            <meta itemprop="email" content="w430390470@example.com" />
+            <i class="fas fa-fw fa-square-envelope" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="从0到1：基于 GitHub Actions 的项目部署全流程">
+    <meta itemprop="description" content="  记录一次完整的项目上线过程">
+    <meta itemprop="datePublished" content="2026-03-28T21:19:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://taciturn-hg.github.io/skill/2026/03/28/%E4%BB%8E0%E5%88%B01-%E5%9F%BA%E4%BA%8E-GitHub-Actions-%E7%9A%84%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B/" itemprop="url">从0到1：基于 GitHub Actions 的项目部署全流程
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#前言">前言</a></li><li><a href="#一云服务器和云数据库">一、云服务器和云数据库</a><ul><li><a href="#1云服务器">1、云服务器</a><ul><li><a href="#购买服务器">①购买服务器</a></li><li><a href="#查看服务器信息">②查看服务器信息</a></li><li><a href="#连接服务器">③连接服务器</a></li></ul></li><li><a href="#2云数据库">2、云数据库</a><ul><li><a href="#购买数据库">①购买数据库</a></li><li><a href="#设置数据库信息">②设置数据库信息</a></li></ul></li></ul></li><li><a href="#二配置服务器">二、配置服务器</a><ul><li><a href="#1配置环境">1、配置环境</a></li><li><a href="#2配置nginx">2、配置nginx</a></li><li><a href="#3配置服务器ssh登录密钥">3、配置服务器SSH登录密钥</a></li></ul></li><li><a href="#三部署项目">三、部署项目</a><ul><li><a href="#1后端部署">1、后端部署</a></li><li><a href="#2前端部署">2、前端部署</a></li><li><a href="#3测试">3、测试</a></li></ul></li><li><a href="#四实现自动化部署">四、实现自动化部署</a><ul><li><a href="#1配置github-action">1、配置Github Action</a></li><li><a href="#2编写workflows工作流文件">2、编写workflows工作流文件</a></li><li><a href="#3测试-1">3、测试</a></li></ul></li><li><a href="#五总结">五、总结</a><ul><li><a href="#1常见问题">1、常见问题</a></li><li><a href="#2可优化点">2、可优化点</a></li></ul></li><li><a href="#六补充">六、补充</a><ul><li><a href="#1域名绑定">1、域名绑定</a><ul><li><a href="#购买域名">①购买域名</a></li><li><a href="#配置域名解析">②配置域名解析</a></li><li><a href="#配置nginx服务器域名">③配置nginx服务器域名</a></li></ul></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <blockquote>
+  <p>记录一次完整的项目上线过程</p>
+</blockquote>
+
+<h1 id="前言">前言</h1>
+
+<p>本博客旨在记录本人在第一次将项目部署到服务器的全流程，不仅仅是为了加深自己对部署流程的记忆，更是为了帮助未部署过项目的同学，能更快的掌握如何从0开始部署一个项目</p>
+
+<p><strong>注：本博客部署的为spring boot+vue的前后端分离项目，部署的云服务器和云数据库均是阿里云上的产品</strong></p>
+
+<h1 id="一云服务器和云数据库">一、云服务器和云数据库</h1>
+
+<p>首先，我们要知道，一个完整的项目是由前端、后端、数据库构成，而前端和后端的服务均位于云服务器，而数据库则由专门的云数据库负责承载，所以接下来，会介绍购买云服务器和云数据库的流程</p>
+
+<h2 id="1云服务器">1、云服务器</h2>
+
+<p>阿里云的云服务器分为两种：<strong>轻量应用服务器</strong>和<strong>云服务器ECS</strong></p>
+
+<p>这里推荐<strong>轻量应用服务器</strong>，因为其已经构建好了基础的网络、防火墙，相当于是已经”封装“好的产品，拿来即用</p>
+
+<p>而<strong>云服务器ECS</strong>就需要自己去搭建网络、防火墙、公网ip，作为未接触过运维相关知识的开发者，不建议用该服务器作为部署服务器，若是不熟练，在配置上就会浪费相当多的时间</p>
+
+<h3 id="购买服务器">①购买服务器</h3>
+
+<p>以阿里云为例，首先就是得在<a href="https://www.aliyun.com/">阿里云官网</a>注册阿里云的账号</p>
+
+<p>然后就可以在上方导航栏的<code class="language-plaintext highlighter-rouge">产品-&gt;计算-&gt;轻量应用服务器</code>找到</p>
+
+<p><img src="/assets/images/2026-03-28/1-1.png" alt="" /></p>
+
+<p>进去之后直接点击立即购买，就会出现这个页面</p>
+
+<p><img src="/assets/images/2026-03-28/1-2.png" alt="" /></p>
+
+<p><img src="/assets/images/2026-03-28/1-3.png" alt="" /></p>
+
+<p>实例选择2核、2GB运存、40GB系统盘这个配置就够用了，然后系统选择ubuntu，版本选择最新的24.04版本，这是最基础的配置（当然要是有money那另说）</p>
+
+<p><img src="/assets/images/2026-03-28/1-4.png" alt="" /></p>
+
+<h3 id="查看服务器信息">②查看服务器信息</h3>
+
+<p>在购买完服务器之后，来到阿里云主页，可以看到右上角有个控制台，点进去</p>
+
+<p><img src="/assets/images/2026-03-28/1-5.png" alt="" /></p>
+
+<p>点进去之后在我的资源这里选择轻量应用服务器</p>
+
+<p><img src="/assets/images/2026-03-28/1-6.png" alt="" /></p>
+
+<p>进去之后就可以看到自己的服务器</p>
+
+<p><img src="/assets/images/2026-03-28/1-7.png" alt="" /></p>
+
+<p>再点击自己服务器之后，可以看到服务器的一些基本信息，当然主要还是记住下面框住的ip地址</p>
+
+<p><img src="/assets/images/2026-03-28/1-8.png" alt="" /></p>
+
+<p>然后上面应该是有个设置密码的，我这里已经设置过了，可以理解为登录你这个服务器系统的密码，可以设置一下，方便后面连接服务器</p>
+
+<h3 id="连接服务器">③连接服务器</h3>
+
+<p>（这里就有人要问了，“阿里云那不是提供了远程连接的按钮么，为啥还有连接服务器这一栏”，这个我只能说因人而异，我更偏向于用远程软件去连接服务器，相对来说方便点。）</p>
+
+<p>这里就需要用到一个软件，<a href="https://mobaxterm.mobatek.net/"><strong>MobaXterm</strong></a>，这里不介绍了，也有其他替代产品，用法差不多</p>
+
+<p>软件下载好后打开是这样的</p>
+
+<p><img src="/assets/images/2026-03-28/1-9.png" alt="" /></p>
+
+<p>点击左上角的session，然后在Remote host里面填入服务器的公网ip，而后点击ok</p>
+
+<p><img src="/assets/images/2026-03-28/1-10.png" alt="" /></p>
+
+<p>然后就会进入到这个页面，输入刚刚设置的用户名和密码</p>
+
+<p><img src="/assets/images/2026-03-28/1-11.png" alt="" /></p>
+
+<p>显示这个页面就是成功连接到服务器了</p>
+
+<p><img src="/assets/images/2026-03-28/1-12.png" alt="" /></p>
+
+<h2 id="2云数据库">2、云数据库</h2>
+
+<p>云数据库同样有很多，这里选择<strong>云数据库RDS</strong></p>
+
+<h3 id="购买数据库">①购买数据库</h3>
+
+<p>在上方导航栏<code class="language-plaintext highlighter-rouge">产品-&gt;数据库-&gt;云数据库RDS</code>点进去</p>
+
+<p><img src="/assets/images/2026-03-28/1-13.png" alt="" /></p>
+
+<p>点击购买之后到配置页面，基本上按下面配置就行，mysql选自己项目的版本，这里选8.0，规格最基础的够用，存储空间10GB够用，按个人情况而定</p>
+
+<p><img src="/assets/images/2026-03-28/1-14.png" alt="" /></p>
+
+<p><img src="/assets/images/2026-03-28/1-15.png" alt="" /></p>
+
+<h3 id="设置数据库信息">②设置数据库信息</h3>
+
+<p>在购买完之后，同样是<code class="language-plaintext highlighter-rouge">控制台-&gt;我的资源</code>这里找到云数据库RDS</p>
+
+<p><img src="/assets/images/2026-03-28/1-16.png" alt="" /></p>
+
+<p>然后在左边的实例列表这里找到自己的数据库实例，点进去</p>
+
+<p><img src="/assets/images/2026-03-28/1-17.png" alt="" /></p>
+
+<p>这个就跟自己本地的mysql数据库一样，不过是加了ui，更好操作</p>
+
+<p>可以在账号管理这里加登录数据库的账号和对应的权限，不过一般会创建一个高权限账号root和若干普通账号分别操作不同数据库，做权限隔离</p>
+
+<p><img src="/assets/images/2026-03-28/1-18.png" alt="" /></p>
+
+<p>数据库管理就可以创建数据库</p>
+
+<p><img src="/assets/images/2026-03-28/1-19.png" alt="" /></p>
+
+<p>白名单管理，顾名思义，可以设置访问数据库的ip白名单，这里建议加上自己本机的<a href="https://www.whatismyip.com.tw/">公网ip</a>（可以直接去网上去查<code class="language-plaintext highlighter-rouge">本机ip</code>）和自己服务器的公网IP（为后续部署到服务器的项目开放权限）</p>
+
+<p><img src="/assets/images/2026-03-28/1-20.png" alt="" /></p>
+
+<p>然后就是数据库连接这里，需要在这里把外网地址打开然后记住，因为spring boot项目的数据库配置是<code class="language-plaintext highlighter-rouge">http://云数据库地址:3306</code>，这个外网地址就是填写在这的，当然也可以在本地的navicat或者datagrip连接数据库，连接时候需要填写的主机就是这个外网地址</p>
+
+<p><img src="/assets/images/2026-03-28/1-21.png" alt="" /></p>
+
+<h1 id="二配置服务器">二、配置服务器</h1>
+
+<p>打开刚刚的MobaXterm，先更新下系统</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update <span class="o">&amp;&amp;</span> apt upgrade <span class="nt">-y</span>
+</code></pre></div></div>
+
+<h2 id="1配置环境">1、配置环境</h2>
+
+<p>先下载基础的git、nginx、maven，分别对应项目管理、前端托管、后端管理（java）</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>git nginx maven <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>还有前端的node管理工具nvm</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 下载nvm</span>
+curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+<span class="c"># 让nvm生效</span>
+<span class="nb">source</span> ~/.bashrc
+
+<span class="c"># 查看nvm是否安装成功</span>
+nvm <span class="nt">-v</span>
+</code></pre></div></div>
+
+<p>然后可以通过nvm去安装node，这里node版本是22</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 安装node 22</span>
+nvm <span class="nb">install </span>22
+
+<span class="c"># 使用node 22</span>
+nvm use 22
+</code></pre></div></div>
+
+<p>然后安装java，这里是java17</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>openjdk-17-jdk <span class="nt">-y</span>
+java <span class="nt">-version</span>
+</code></pre></div></div>
+
+<h2 id="2配置nginx">2、配置nginx</h2>
+
+<p>然后接下来配置nginx代理，这点很重要，关系到能不能正常访问前端和调用接口</p>
+
+<p>首先到nginx的目录</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /etc/nginx
+</code></pre></div></div>
+
+<p>这下面有两个文件夹需要我们去设置</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sites-available/		<span class="c"># 配置文件夹</span>
+sites-enabled/			<span class="c"># 生效的配置文件（软连接指向配置文件夹的配置）</span>
+</code></pre></div></div>
+
+<p>首先要将两个文件夹里面的default文件删掉</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-rf</span> sites-available/default
+<span class="nb">rm</span> <span class="nt">-rf</span> sites-enabled/default
+</code></pre></div></div>
+
+<p>然后编写nginx的配置</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano sites-available/项目名.conf		<span class="c">#这里名字最好对应你自己的项目，分项目配置最好</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server <span class="o">{</span>
+    listen 80<span class="p">;</span>
+
+    server_name 0.0.0.0<span class="p">;</span>		<span class="c"># 这个就是域名，没有的话删掉这行即可</span>
+
+    root /var/www/项目名<span class="p">;</span>		<span class="c"># 这里对应前端的构建文件地址，后面会讲</span>
+    index index.html<span class="p">;</span>
+
+    location / <span class="o">{</span>
+    	try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ /index.html<span class="p">;</span>	<span class="c"># 将所有未知路径重定向到 index.html，让前端路由接管</span>
+    <span class="o">}</span>
+
+    location /api/ <span class="o">{</span>						<span class="c"># 这里的/api/是我项目接口的固定前缀，视项目具体配置而定</span>
+        proxy_pass http://127.0.0.1:8080<span class="p">;</span>	<span class="c"># 这里就是后端的访问地址，主要是后面的端口号，看你后端启动之后是多少</span>
+
+		<span class="c"># 下面这些是为了传递真实客户端信息，能避免很多IP获取错误问题，建议加上</span>
+        proxy_http_version 1.1<span class="p">;</span>
+        proxy_set_header Connection <span class="s2">""</span><span class="p">;</span>
+
+        proxy_set_header Host <span class="nv">$host</span><span class="p">;</span>
+        proxy_set_header X-Real-IP <span class="nv">$remote_addr</span><span class="p">;</span>
+        proxy_set_header X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>然后建立软连接应用这些配置</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-s</span> /etc/nginx/sites-available/项目名.conf /etc/nginx/sites-enabled/		<span class="c"># 这里用绝对路径防止软连接出问题</span>
+</code></pre></div></div>
+
+<p>测试并重启nginx</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nginx <span class="nt">-t</span>
+systemctl restart nginx
+</code></pre></div></div>
+
+<h2 id="3配置服务器ssh登录密钥">3、配置服务器SSH登录密钥</h2>
+
+<p>首先在你的服务器命令行使用命令生成SSH key</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+</code></pre></div></div>
+
+<blockquote>
+  <p>ssh-keygen SSH官方工具，用来生成密钥对</p>
+
+  <p>-t rsa 指定加密算法</p>
+
+  <p>-b 4096 指定密钥长度为4096</p>
+
+  <p>-C “item” （可选）备注密钥</p>
+</blockquote>
+
+<p>执行之后会出现以下几行，直接回车跳过即可</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Generating public/private rsa key pair.
+Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>:	<span class="c"># 默认路径</span>
+Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>:					<span class="c"># 密码，CI/CD不用设置，直接回车</span>
+</code></pre></div></div>
+
+<p>至此，SSH key生成，现在就去查看，基于默认路径，可以看到其在<code class="language-plaintext highlighter-rouge">/root/ssh/</code>文件夹下，先导航到该文件夹查看有什么文件</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 命令</span>
+<span class="nb">cd</span> ~/.ssh
+<span class="nb">ls</span> <span class="nt">-l</span>
+
+<span class="c"># 输出结果</span>
+drwx------  2 root root 4096 Mar 28 18:05 ./
+drwx------ 11 root root 4096 Mar 29 10:09 ../
+<span class="nt">-rw-------</span>  1 root root  755 Mar 28 18:05 authorized_keys	<span class="c"># 白名单钥匙列表</span>
+<span class="nt">-rw-------</span>  1 root root 3401 Mar 28 16:16 id_rsa			<span class="c"># 私钥</span>
+<span class="nt">-rw-r--r--</span>  1 root root  754 Mar 28 16:16 id_rsa.pub		<span class="c"># 公钥</span>
+</code></pre></div></div>
+
+<p>首先查看公钥信息，然后将其复制粘贴到<code class="language-plaintext highlighter-rouge">authorized_keys</code>文件里面</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 命令</span>
+<span class="nb">cat </span>id_rsa.pub			<span class="c"># 查看公钥文件内容</span>
+vim authorized_keys		<span class="c"># 编辑文件</span>
+
+<span class="c"># 公钥格式</span>
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQ... github-actions		<span class="c"># 一定要复制完整，不然不生效</span>
+</code></pre></div></div>
+
+<p>好了服务器这边就设置好了</p>
+
+<h1 id="三部署项目">三、部署项目</h1>
+
+<p>这里建议目录结构这样</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/root/item/项目/
+</code></pre></div></div>
+
+<p>先到item文件夹下去拉取自己的项目</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /root/item
+git clone github项目链接
+</code></pre></div></div>
+
+<p>不知道的到自己库这里去复制</p>
+
+<p><img src="/assets/images/2026-03-28/1-22.png" alt="" /></p>
+
+<h2 id="1后端部署">1、后端部署</h2>
+
+<p>先到自己后端代码目录下</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>backend		<span class="c">#根据自己项目结构来</span>
+</code></pre></div></div>
+
+<p>然后打包自己项目</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn clean package <span class="nt">-DskipTests</span>
+</code></pre></div></div>
+
+<p>然后可以发现自己后端文件夹里面出现了target文件夹，到里面找到后缀为<code class="language-plaintext highlighter-rouge">.jar</code>的文件名记住</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-l</span> target
+</code></pre></div></div>
+
+<p>然后就可以启动后端服务了</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">nohup </span>java <span class="nt">-jar</span> target/xxx.jar <span class="o">&gt;</span> log.txt 2&gt;&amp;1 &amp;		<span class="c"># 这里的xxx.jar就是target里面.jar后缀的文件，别真写xxx</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这里解释下这行命令</p>
+
+  <p>nohup 让程序在后台持续运行，也就是关了终端也不会停止服务</p>
+
+  <p>java -jar target/xxx.jar 启动你的spring boot项目</p>
+
+  <p>&gt; log.txt 2&gt;&amp;1 将日志输出到日志文件</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> log.txt       <span class="c"># 标准输出</span>
+2&gt;&amp;1            <span class="c"># 错误输出</span>
+</code></pre></div>  </div>
+
+  <p>&amp; 则是放在后台执行，防止占用终端</p>
+</blockquote>
+
+<p>然后可以在服务器测试下能不能访问</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://localhost:8080
+</code></pre></div></div>
+
+<p><strong>补充：前面讲到云数据库的外网链接，记得到你自己的application-prod.yml里面配置下云数据库地址和登录数据库的账号密码，然后application.yml里面生效的配置文件记得选prod</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring</span><span class="pi">:</span>
+  <span class="na">datasource</span><span class="pi">:</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">jdbc:mysql://云数据库外网地址:3306/your_db</span>
+    <span class="na">username</span><span class="pi">:</span> <span class="s">root</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="s">xxx</span>
+</code></pre></div></div>
+
+<h2 id="2前端部署">2、前端部署</h2>
+
+<p>还是一样，先到前端代码文件夹下</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>frontend		<span class="c">#根据自己项目结构来</span>
+</code></pre></div></div>
+
+<p>然后正常初始化启动前端</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install
+</span>npm run build
+</code></pre></div></div>
+
+<p>这里会发现自己前端代码文件夹下面出现了<code class="language-plaintext highlighter-rouge">dist</code>文件夹，这个文件夹里面就是我们需要的能让前端页面上线运行的东西</p>
+
+<p>前面在nginx配置里面看到我的文件是放在<code class="language-plaintext highlighter-rouge">/var/www/项目名</code>下，因为放在root里面的话，nginx访问不到，就无法正常托管前端，所以这里需要把dist里面的东西转移过去</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-rf</span> /var/www/项目名/<span class="k">*</span>			<span class="c"># 先清理旧数据</span>
+<span class="nb">cp</span> <span class="nt">-r</span> dist/<span class="k">*</span> /var/www/项目名/		<span class="c"># 将新数据复制进去</span>
+</code></pre></div></div>
+
+<p>这里做完之后就重启一下nginx</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart nginx
+</code></pre></div></div>
+
+<p>至此前端也部署完毕</p>
+
+<h2 id="3测试">3、测试</h2>
+
+<p>根据自己服务器的公网ip直接访问即可</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://公网ip
+</code></pre></div></div>
+
+<p>当然这里只是实现了在服务器部署并运行项目，接下来讲解怎么通过github Action在提交之后自动部署服务器更新项目</p>
+
+<h1 id="四实现自动化部署">四、实现自动化部署</h1>
+
+<p>这里利用Github Action实现项目的自动化部署，然后简单介绍下，github action可以理解为一个自动化工具，他会读取你项目<code class="language-plaintext highlighter-rouge">.github/workflows/deploy.yml</code>里面写的工作流并执行，所以我们就是写deploy.yml来构建一个自动化部署的action工作流让action在每次提交后自动帮我们执行，由此做到提交即部署</p>
+
+<h2 id="1配置github-action">1、配置Github Action</h2>
+
+<p>首先到自己服务器的命令行这里，前面配置服务器的时候我们配置了SSH登录密钥，这里我们需要获取私钥信息并复制</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 命令</span>
+<span class="nb">cat</span> ~/.ssh/id_rsa			<span class="c"># 查看私钥文件内容</span>
+
+<span class="c"># 私钥格式</span>
+<span class="nt">-----BEGIN</span> OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAA...
+（中间很多行）
+...xxxxxxxxxxxxxxxxxxxxxxxx
+<span class="nt">-----END</span> OPENSSH PRIVATE KEY-----
+<span class="c"># 同理，一定要复制完全，不然也是无效</span>
+</code></pre></div></div>
+
+<p>然后到自己github的库的setting这里，找到<code class="language-plaintext highlighter-rouge">Secrets and variavles -&gt; Actions -&gt; Respository secrets -&gt; new repository secret</code></p>
+
+<p><img src="/assets/images/2026-03-28/1-23.png" alt="" /></p>
+
+<p>点进去之后是这样，<code class="language-plaintext highlighter-rouge">name</code>里面填变量名，<code class="language-plaintext highlighter-rouge">Secret</code>里面填变量值</p>
+
+<p><img src="/assets/images/2026-03-28/1-24.png" alt="" /></p>
+
+<p>然后我们需要设置三样，服务器SSH私钥<code class="language-plaintext highlighter-rouge">SERVER_SSH_KEY</code>、服务器公网IP<code class="language-plaintext highlighter-rouge">SERVER_IP</code>、服务器用户名<code class="language-plaintext highlighter-rouge">SERVER_USER</code></p>
+
+<p>私钥就是上面复制的那个</p>
+
+<p>公网ip就是前面在云服务器看到的标注了公网的ip</p>
+
+<p>用户名就是你设置服务器密码的那个用户名，我这是<code class="language-plaintext highlighter-rouge">root</code></p>
+
+<h2 id="2编写workflows工作流文件">2、编写workflows工作流文件</h2>
+
+<p>首先在你本地打开你自己的项目，在后端根目录下找到<code class="language-plaintext highlighter-rouge">.github</code>文件夹，在里面创建<code class="language-plaintext highlighter-rouge">workflows</code>文件夹，然后创建<code class="language-plaintext highlighter-rouge">deploy.yml</code>文件</p>
+
+<p><strong>注：如果你已经编写了工作流文件，就跳过这步</strong></p>
+
+<p>这里给一套我用的最基础的deploy文件内容（记得根据自己项目结构替换里面的占位符）</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Deploy</span><span class="err">			</span><span class="s"># 工作流名字</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">dev</span><span class="err">				</span><span class="s"># 触发条件，在dev分支push的时候触发，这里看你的主分支是哪个</span>
+
+<span class="na">jobs</span><span class="pi">:</span><span class="err">					</span><span class="c1"># 任务</span>
+  <span class="na">deploy</span><span class="pi">:</span><span class="err">				</span><span class="c1"># 任务名</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span><span class="err">		</span><span class="s"># 运行环境（Github会临时开个云服务器运行）</span>
+
+    <span class="na">steps</span><span class="pi">:</span><span class="err">						</span><span class="c1"># 步骤（核心），每一个“-”就是一个步骤</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">拉代码</span><span class="err">			</span>  <span class="c1"># 一个名字叫“拉代码”的步骤</span>
+<span class="err">      	</span><span class="c1"># uses表示使用 GitHub 官方提供的一个“现成动作（Action）”，这里是把你的仓库代码 clone 到 CI 服务器</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">SSH连接并部署</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span><span class="err">					#</span> <span class="err">这里表示执行一整段多行shell脚本</span>
+          <span class="s"># 创建 SSH 环境</span>
+          <span class="s">mkdir -p ~/.ssh	# 创建 SSH 目录</span>
+          <span class="s">echo "$" &gt; ~/.ssh/id_rsa	# 把 GitHub Secrets 里的私钥写入文件</span>
+          <span class="s">chmod 600 ~/.ssh/id_rsa	# 设置权限</span>
+
+          <span class="s"># 自动加入服务器指纹以信任服务器（避免交互）</span>
+          <span class="s">ssh-keyscan -H $ &gt;&gt; ~/.ssh/known_hosts</span>
+
+<span class="err">		</span>  <span class="c1"># 远程执行命令</span>
+          <span class="s">ssh $@$ &lt;&lt; 'EOF'</span><span class="err">	</span><span class="s"># 登录服务器，然后执行下面这一整段脚本</span>
+            <span class="s">cd /root/item/项目名</span>
+
+            <span class="s"># 拉最新代码</span>
+            <span class="s">git pull origin dev</span>
+
+            <span class="s"># ===== 后端 =====</span>
+            <span class="s">cd 后端文件夹</span>
+            <span class="s">mvn clean package -DskipTests</span>
+
+            <span class="s">pkill -f 进程名 || </span><span class="no">true</span>
+            <span class="s">nohup java -jar target/xxx.jar &gt; log.txt 2&gt;&amp;1 &amp;</span>
+
+            <span class="s"># ===== 前端 =====</span>
+            <span class="s"># GitHub CI是全新环境，要显式加载nvm设置node版本</span>
+            <span class="s">export NVM_DIR="$HOME/.nvm"</span>
+            <span class="s">source "$NVM_DIR/nvm.sh"</span>
+            <span class="s">nvm use </span><span class="m">22</span>
+
+            <span class="s">cd ../前端文件夹</span>
+            <span class="s">npm install</span>
+            <span class="s">npm run build</span>
+
+            <span class="s"># 拷贝到 nginx 目录</span>
+            <span class="s">rm -rf /var/www/项目名/*</span>
+            <span class="s">cp -r dist/* /var/www/项目名/</span>
+
+            <span class="s"># 重启 nginx</span>
+            <span class="s">systemctl restart nginx</span>
+
+            <span class="s">echo "部署完成"</span>
+          <span class="s">EOF</span>
+</code></pre></div></div>
+
+<p>编写完成后，就可以在git bash里面提交该文件到远程Github库</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"add workflows file"</span>
+git push origin dev
+</code></pre></div></div>
+
+<p>然后就可以到Github库的Action这里查看构建状态了</p>
+
+<p><img src="/assets/images/2026-03-28/1-25.png" alt="" /></p>
+
+<h2 id="3测试-1">3、测试</h2>
+
+<p>同样的，在构建完成之后根据自己服务器的公网ip直接访问即可</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://公网ip
+</code></pre></div></div>
+
+<p>至此，整套基于Github Action的自动化部署基础流程结束</p>
+
+<h1 id="五总结">五、总结</h1>
+
+<p>整个博客从0开始，购买云服务器和云数据库，到在服务器成功运行项目，再到配置Action实现自动化部署，整个流程经过我多次踩坑之后才确定下来，当然也有可能有隐藏的问题存在，但这有待发掘，也有优化的空间，这些配置都是最最基础的，能让整个过程跑起来的配置，后续会在本博客最后补充可以优化的地方</p>
+
+<h2 id="1常见问题">1、常见问题</h2>
+
+<p><strong>Q：为啥spring boot配置了云数据库地址，还是连不上数据库？</strong></p>
+
+<p>A：先检查下自己的<code class="language-plaintext highlighter-rouge">application.yml</code></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">server</span><span class="pi">:</span>
+  <span class="na">profiles</span><span class="pi">:</span>
+    <span class="na">active</span><span class="pi">:</span> <span class="s">prod</span> <span class="c1"># 这里是不是自己的生产环境配置文件</span>
+</code></pre></div></div>
+
+<p>然后检查<code class="language-plaintext highlighter-rouge">application-prod.yml</code>里的数据库配置有没有写对</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring</span><span class="pi">:</span>
+  <span class="na">datasource</span><span class="pi">:</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">jdbc:mysql://云数据库外网地址:3306/your_db</span>
+    <span class="na">username</span><span class="pi">:</span> <span class="s">root</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="s">xxx</span>
+</code></pre></div></div>
+
+<p>都没有问题那就是你的云数据库的白名单没加你的云服务器的公网IP，去阿里云控制台设置下数据库白名单即可</p>
+
+<p><img src="/assets/images/2026-03-28/1-26.png" alt="" /></p>
+
+<p><strong>Q：我能正常访问自己的服务器，但是项目前端发送接口访问请求后显示404是怎么回事？</strong></p>
+
+<p>A：这个有很多情况，首先要在你前端打开f12开发者工具，在网络那里找到你的请求，然后查看标头里面的常规</p>
+
+<p><img src="/assets/images/2026-03-28/1-27.png" alt="" /></p>
+
+<p>1、请求网址后面跟着的接口路径少了/api前缀（这个要看自己项目是否有默认前缀），就会导致无法请求到正确端口，这个要检查自己的nginx配置文件的<code class="language-plaintext highlighter-rouge">location /api/</code>是否是正确的，不要少加也不要多加<code class="language-plaintext highlighter-rouge">/</code></p>
+
+<p>2、远程地址不是自己的云服务器ip，这个一般是因为自己开了代理，只需要加规则绕过即可，或者直接把代理关了再访问也是可以的，这里以clash verge为例，跟随以下图片将自己云服务器ip添加进去即可</p>
+
+<p><img src="/assets/images/2026-03-28/1-28.png" alt="" /></p>
+
+<p><img src="/assets/images/2026-03-28/1-29.png" alt="" /></p>
+
+<p>3、还有一种情况是我出现过的，我前端是配置了axios来转发请求发送到后端地址的，而该后端地址的配置是在<code class="language-plaintext highlighter-rouge">.env</code>的配置文件里面，而我忘了新建<code class="language-plaintext highlighter-rouge">.env.production</code>文件配置在build环境下的配置，就默认走的<code class="language-plaintext highlighter-rouge">.env.example</code>里面的配置，而后端API基础地址我写的是<code class="language-plaintext highlighter-rouge">http://127.0.0.1:8080/api</code>，这就会出现问题，其转发的还是本地ip，自然无法将请求正确转发给云服务器后端</p>
+
+<p>所以解决方法就是将<code class="language-plaintext highlighter-rouge">.env</code>里面后端API基础地址的值改成相对路径<code class="language-plaintext highlighter-rouge">/api</code>或者绝对路径<code class="language-plaintext highlighter-rouge">http://云服务器地址:8080/api</code>，然后重新构建前端再重启nginx即可</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run build
+<span class="nb">rm</span> <span class="nt">-rf</span> /var/www/项目名/<span class="k">*</span>
+<span class="nb">cp</span> <span class="nt">-r</span> ~/item/项目名/前端文件夹/dist/<span class="k">*</span> /var/www/项目名
+systemctl restart nginx
+</code></pre></div></div>
+
+<p><strong>Q：我的spring boot配置里面设置了可上传文件大小是10MB，为啥本地能正常上传4MB的图片，服务器端就不行呢？</strong></p>
+
+<p>A：这里是因为Nginx也有文件限制，其默认是1MB的请求体大小，要解决也很简单，在你项目对应的nginx配置文件里面加上这行，<strong>记得重启nginx</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">client_max_body_size 20M;</span> <span class="c1"># 这里就是设置最大请求体大小是20MB</span>
+</code></pre></div></div>
+
+<p><strong>Q：为什么我跳转到一个页面，只要网址栏不是服务器ip，点击刷新之后就报404呢？</strong></p>
+
+<p>A：我想，你说的应该是这个情况</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>访问: http://1.1.1.1
+→ 登录成功
+→ 跳转到: http://1.1.1.1/home
+→ 刷新
+→ 404 ❌
+</code></pre></div></div>
+
+<p>这个问题本质是前端路由与服务器处理机制不一致导致的路径解析错误， 你的项目应该是单页应用（SPA）架构（如 Vue / React），其路由由前端控制，如果是正常跳转，那没问题，因为是有前端路由接管的，但是页面刷新，浏览器会将前端路由当成真实路径请求服务器，例如上面说的，服务器会去请求后端<code class="language-plaintext highlighter-rouge">GET /home</code>，那nginx就会在<code class="language-plaintext highlighter-rouge">/var/www/项目名</code>里面找，那自然是没有，就会返回404</p>
+
+<p>解决方法也很简单，到你的项目的nginx配置文件里面配置一下兜底，让前端路由接管页面渲染，<strong>记得重启nginx</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">location / {</span>
+    <span class="s">try_files $uri $uri/ /index.html;</span><span class="err">		</span><span class="s"># 加这行</span>
+<span class="err">}</span>
+</code></pre></div></div>
+
+<h2 id="2可优化点">2、可优化点</h2>
+
+<ol>
+  <li>域名绑定（替代ip）</li>
+  <li>Docker部署</li>
+  <li>HTTPS（Let’s Encrypt）</li>
+  <li>CI/CD 完善（多环境 dev/test/prod）</li>
+  <li>前端构建优化（云构建，同步dist到云服务器）</li>
+</ol>
+
+<h1 id="六补充">六、补充</h1>
+
+<h2 id="1域名绑定">1、域名绑定</h2>
+
+<p>这里提前讲一下，买域名是需要实名信息模板的，然后这玩意审核要一天，所以想购买的记得提前创建自己的信息模板</p>
+
+<p><img src="/assets/images/2026-03-28/1-33.png" alt="" /></p>
+
+<p><img src="/assets/images/2026-03-28/1-34.png" alt="" /></p>
+
+<h3 id="购买域名">①购买域名</h3>
+
+<p>依旧是来到阿里云首页，<code class="language-plaintext highlighter-rouge">产品 -&gt; 域名与网站 -&gt; 域名与网站</code></p>
+
+<p><img src="/assets/images/2026-03-28/1-30.png" alt="" /></p>
+
+<p>然后这里就可以搜索自己想要的域名名和后缀组合的域名了，搜索之后根据自己的情况购买即可</p>
+
+<p><img src="/assets/images/2026-03-28/1-31.png" alt="" /></p>
+
+<p><img src="/assets/images/2026-03-28/1-32.png" alt="" /></p>
+
+<h3 id="配置域名解析">②配置域名解析</h3>
+
+<p>依然是到控制台打开域名与网站，然后点进去</p>
+
+<p><img src="/assets/images/2026-03-28/1-35.png" alt="" /></p>
+
+<p>点进去之后选择域名解析</p>
+
+<p><img src="/assets/images/2026-03-28/1-36.png" alt="" /></p>
+
+<p>然后直接修改解析的地址即可，里面的记录值改成自己服务器的公网ip即可</p>
+
+<p><img src="/assets/images/2026-03-28/1-37.png" alt="" /></p>
+
+<h3 id="配置nginx服务器域名">③配置nginx服务器域名</h3>
+
+<p>这里就是在nginx里面加服务器域名的设置了，先进自己项目的nginx配置文件</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/nginx/sites-available/项目名.conf
+</code></pre></div></div>
+
+<p>然后加上这行</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server_name 域名 www.域名<span class="p">;</span>
+</code></pre></div></div>
+
+<p>然后保存之后<strong>重启nginx</strong>就可以了</p>
+
+<p><strong>注：设置好之后要等待5-10分钟域名才能使用，建议使用之前先测试下能不能正常解析出自己的服务器ip</strong></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nslookup</span><span class="w"> </span><span class="err">域名</span><span class="w">
+</span></code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-03-28T21:19:00+00:00">March 28, 2026</time></p>
+
+
+      </footer>
+
+      
+
+      
+
+  <nav class="pagination" aria-label="Post pagination">
+    
+      <a href="/blog/2026/02/15/%E5%9C%A8-Windows-%E4%B8%8A%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E8%84%9A%E6%9C%AC/" class="pagination--pager" title="Windows 一键代理开关脚本（proxy-on / proxy-off / proxy-status）">Previous</a>
+    
+    
+      <a href="/blog/2026/04/04/%E4%B8%80%E6%AC%A1-%E4%BC%98%E5%8C%96-%E5%BC%95%E5%8F%91%E7%9A%84%E7%81%BE%E9%9A%BE-%E6%89%8B%E5%8A%A8%E9%99%90%E5%88%B6%E5%86%85%E5%AD%98%E5%AF%BC%E8%87%B4-ACPI_BIOS_ERROR-%E8%93%9D%E5%B1%8F%E7%9A%84%E5%AE%8C%E6%95%B4%E4%BF%AE%E5%A4%8D%E5%AE%9E%E5%BD%95/" class="pagination--pager" title="一次“优化”引发的灾难：手动限制内存导致 ACPI_BIOS_ERROR 蓝屏的完整修复实录">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://taciturn-hg.github.io">taciturn-hg&#39;s Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
