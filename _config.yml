@@ -37,6 +37,7 @@ permalink: /:categories/:year/:month/:day/:title/
 plugins:
   - jekyll-paginate
   - jekyll-include-cache
+  - jekyll-feed
 
 collections:
   posts:
